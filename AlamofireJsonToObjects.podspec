@@ -7,11 +7,11 @@ Pod::Spec.new do |s|
 #  summary should be tweet-length, and the description more in depth.
 #
 
-s.name         = "EVReflection"
-s.version      = "2.1.0"
-s.summary      = "iOS: Swift helper library with reflection functions"
+s.name         = "AlamofireJsonToObjects"
+s.version      = "1.0.0"
+s.summary      = "An Alamofire extension which converts JSON response data into swift objects using EVReflection"
 
-s.description  = "Swift helper library with reflection functions including support for NSCoding, Printable, Hashable, Equatable and JSON"
+s.description  = "An Alamofire extension which converts JSON response data into swift objects using EVReflection. "
 
 s.homepage     = "https://github.com/evermeer/EVReflection"
 
@@ -53,7 +53,7 @@ s.platform     = :ios, "8.0"
 #  Supports git, hg, bzr, svn and HTTP.
 #
 
-s.source       = { :git => "https://github.com/evermeer/EVReflection.git", :tag => s.version.to_s }
+s.source       = { :git => "https://github.com/evermeer/AlamofireJsonToObjects.git", :tag => s.version.to_s }
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
@@ -63,7 +63,7 @@ s.source       = { :git => "https://github.com/evermeer/EVReflection.git", :tag 
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = 'EVReflection/pod/*'
+s.source_files  = 'AlamofireJsonToObjects/pod/*'
 
 # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
@@ -81,5 +81,7 @@ s.frameworks = "Foundation"
 
 s.requires_arc = true
 
+s.dependency "Alamofire"
+s.dependency "EVReflection"
 
 end
