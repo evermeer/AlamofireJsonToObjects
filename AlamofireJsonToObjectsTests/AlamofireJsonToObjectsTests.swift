@@ -36,7 +36,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         
         func testResponseObject() {
             // This is an example of a functional test case.
-            let URL = "https://github.com/evermeer/AlamofireJsonToObjects/AlamofireJsonToObjectsTests/sample_json"
+            let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL, parameters: nil)
@@ -64,7 +64,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         func testResponseObject2() {
             // This is an example of a functional test case.
             
-            let URL = "https://github.com/evermeer/AlamofireJsonToObjects/AlamofireJsonToObjectsTests/sample_json"
+            let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL, parameters: nil).responseObject { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: WeatherResponse?, data: AnyObject?, error: NSError?) in
@@ -88,7 +88,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         
         func testArrayResponseObject() {
             // This is an example of a functional test case.
-            let URL = "https://github.com/evermeer/AlamofireJsonToObjects/AlamofireJsonToObjectsTests/sample_array_json"
+            let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL, parameters: nil).responseArray { (response: [Forecast]?, error: NSError?) in
@@ -110,7 +110,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         
         func testArrayResponseObject2() {
             // This is an example of a functional test case.
-            let URL = "https://github.com/evermeer/AlamofireJsonToObjects/AlamofireJsonToObjectsTests/sample_array_json"
+            let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL, parameters: nil).responseArray { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: [Forecast]?, data: AnyObject?, error: NSError?) in
