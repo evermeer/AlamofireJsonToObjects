@@ -1,12 +1,12 @@
 # AlamofireJsonToObjects
 
-[![Circle CI](https://img.shields.io/circleci/project/evermeer/EVReflection.svg?style=flat)](https://circleci.com/gh/evermeer/EVReflection)
-[![Issues](https://img.shields.io/github/issues-raw/evermeer/EVReflection.svg?style=flat)](https://github.com/evermeer/EVReflection/issues)
-[![Stars](https://img.shields.io/github/stars/evermeer/EVReflection.svg?style=flat)](https://github.com/evermeer/EVReflection/stargazers)
-[![Version](https://img.shields.io/cocoapods/v/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
-[![License](https://img.shields.io/cocoapods/l/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
-[![Platform](https://img.shields.io/cocoapods/p/EVReflection.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
-[![Documentation](https://img.shields.io/badge/documented-100%-brightgreen.svg?style=flat)](http://cocoadocs.org/docsets/EVReflection)
+[![Circle CI](https://img.shields.io/circleci/project/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://circleci.com/gh/evermeer/AlamofireJsonToObjects)
+[![Issues](https://img.shields.io/github/issues-raw/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/issues)
+[![Stars](https://img.shields.io/github/stars/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/stargazers)
+[![Version](https://img.shields.io/cocoapods/v/AlamofireJsonToObjects.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
+[![License](https://img.shields.io/cocoapods/l/AlamofireJsonToObjects.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
+[![Platform](https://img.shields.io/cocoapods/p/AlamofireJsonToObjects.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
+[![Documentation](https://img.shields.io/badge/documented-100%-brightgreen.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
 
 [![Git](https://img.shields.io/badge/GitHub-evermeer-blue.svg?style=flat)](https://github.com/evermeer)
 [![Twitter](https://img.shields.io/badge/twitter-@evermeer-blue.svg?style=flat)](http://twitter.com/evermeer)
@@ -41,6 +41,32 @@ If you want support for older versions than iOS 8.0, then you can also just copy
 ## Sample code
 
 ```
+class WeatherResponse: EVObject {
+    var location: String?
+    var three_day_forecast: [Forecast] = [Forecast]()
+}
+
+class Forecast: EVObject {
+    var day: String?
+    var temperature: NSNumber?
+    var conditions: String?
+}
+
+class AlamofireJsonToObjectsTests: XCTestCase {
+    func testResponseObject() {
+    let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
+    let expectation = expectationWithDescription("\(URL)")
+
+    Alamofire.request(.GET, URL, parameters: nil)
+.responseObject { (response: WeatherResponse?, error: NSError?) in
+
+        // That was all... You now have a WeatherResponse object with data
+    }
+
+    waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
+        XCTAssertNil(error, "\(error)")
+    })
+}
 
 ```
 
