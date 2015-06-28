@@ -1,6 +1,5 @@
 # AlamofireJsonToObjects
 
-[![Circle CI](https://img.shields.io/circleci/project/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://circleci.com/gh/evermeer/AlamofireJsonToObjects)
 [![Issues](https://img.shields.io/github/issues-raw/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/issues)
 [![Stars](https://img.shields.io/github/stars/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/stargazers)
 [![Version](https://img.shields.io/cocoapods/v/AlamofireJsonToObjects.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
