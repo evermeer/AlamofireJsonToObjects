@@ -56,8 +56,8 @@ class Forecast: EVObject {
 class AlamofireJsonToObjectsTests: XCTestCase {
     func testResponseObject() {
         let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
-        Alamofire.request(.GET, URL, parameters: nil).responseObject { (response: WeatherResponse?, error: NSError?) in
-
+        Alamofire.request(.GET, URL, parameters: nil)
+        .responseObject { (response: WeatherResponse?, error: NSError?) in
             // That was all... You now have a WeatherResponse object with data
         }
 
