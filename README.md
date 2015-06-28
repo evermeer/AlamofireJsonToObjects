@@ -14,6 +14,7 @@
 [![Website](https://img.shields.io/badge/website-evict.nl-blue.svg?style=flat)](http://evict.nl)
 [![eMail](https://img.shields.io/badge/email-edwin@evict.nl-blue.svg?style=flat)](mailto:edwin@evict.nl?SUBJECT=About EVReflection)
 
+This library was greatly inspired by [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)
 
 Run the tests to see AlamofireJsonToObjects in action.
 
