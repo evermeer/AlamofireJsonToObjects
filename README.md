@@ -14,6 +14,12 @@
 [![Website](https://img.shields.io/badge/website-evict.nl-blue.svg?style=flat)](http://evict.nl)
 [![eMail](https://img.shields.io/badge/email-edwin@evict.nl-blue.svg?style=flat)](mailto:edwin@evict.nl?SUBJECT=About EVReflection)
 
+With AlamofireJsonToObjects it's extremely easy to fetch a json feed and parse it into object. No property mapping is required. Reflection is used to put the values in the corresponding properties.
+
+AlamofireJsonToObjects is based on the folowing libraries:
+[Alamofire](https://github.com/Alamofire/Alamofire) is an elegant HTTP Networking library in Swift
+[EVReflection](https://github.com/evermeer/EVReflection) is used to parse the JSON result to your objects
+
 This library was greatly inspired by [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)
 
 Run the tests to see AlamofireJsonToObjects in action.
