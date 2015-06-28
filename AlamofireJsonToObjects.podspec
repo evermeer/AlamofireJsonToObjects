@@ -63,7 +63,7 @@ s.source       = { :git => "https://github.com/evermeer/AlamofireJsonToObjects.g
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = 'AlamofireJsonToObjects/pod/*'
+s.source_files  = 'AlamofireJsonToObjects/*'
 
 # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
