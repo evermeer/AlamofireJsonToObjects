@@ -42,7 +42,6 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             Alamofire.request(.GET, URL, parameters: nil)
                 .responseObject { (response: WeatherResponse?, error: NSError?) in
                 
-                // That was all... Now just test if it was OK.
                 expectation.fulfill()
                 println("\(response?.description)")
                 XCTAssertNotNil(response, "Response should not be nil")
@@ -67,7 +66,9 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
             let expectation = expectationWithDescription("\(URL)")
             
-            Alamofire.request(.GET, URL, parameters: nil).responseObject { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: WeatherResponse?, data: AnyObject?, error: NSError?) in
+            Alamofire.request(.GET, URL, parameters: nil)
+                .responseObject { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: WeatherResponse?, data: AnyObject?, error: NSError?) in
+                    
                 expectation.fulfill()
                 
                 XCTAssertNotNil(response, "Response should not be nil")
@@ -91,7 +92,8 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
             let expectation = expectationWithDescription("\(URL)")
             
-            Alamofire.request(.GET, URL, parameters: nil).responseArray { (response: [Forecast]?, error: NSError?) in
+            Alamofire.request(.GET, URL, parameters: nil)
+                .responseArray { (response: [Forecast]?, error: NSError?) in
                 expectation.fulfill()
                 
                 XCTAssertNotNil(response, "Response should not be nil")
@@ -113,7 +115,8 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
             let expectation = expectationWithDescription("\(URL)")
             
-            Alamofire.request(.GET, URL, parameters: nil).responseArray { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: [Forecast]?, data: AnyObject?, error: NSError?) in
+            Alamofire.request(.GET, URL, parameters: nil)
+                .responseArray { (request: NSURLRequest, HTTPURLResponse: NSHTTPURLResponse?, response: [Forecast]?, data: AnyObject?, error: NSError?) in
                 expectation.fulfill()
                 
                 XCTAssertNotNil(response, "Response should not be nil")

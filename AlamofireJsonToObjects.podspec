@@ -13,7 +13,7 @@ s.summary      = "An Alamofire extension which converts JSON response data into 
 
 s.description  = "An Alamofire extension which converts JSON response data into swift objects using EVReflection. "
 
-s.homepage     = "https://github.com/evermeer/EVReflection"
+s.homepage     = "https://github.com/evermeer/AlamofireJsonToObjects"
 
 
 # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
