@@ -13,7 +13,7 @@
 [![Website](https://img.shields.io/badge/website-evict.nl-blue.svg?style=flat)](http://evict.nl)
 [![eMail](https://img.shields.io/badge/email-edwin@evict.nl-blue.svg?style=flat)](mailto:edwin@evict.nl?SUBJECT=About AlamofireJsonToObjects)
 
-With AlamofireJsonToObjects it's extremely easy to fetch a json feed and parse it into object. No property mapping is required. Reflection is used to put the values in the corresponding properties.
+With AlamofireJsonToObjects it's extremely easy to fetch a json feed and parse it into objects. No property mapping is required. Reflection is used to put the values in the corresponding properties.
 
 AlamofireJsonToObjects is based on the folowing libraries:
 - [Alamofire](https://github.com/Alamofire/Alamofire) is an elegant HTTP Networking library in Swift
@@ -25,7 +25,7 @@ Run the tests to see AlamofireJsonToObjects in action.
 
 ## Using AlamofireJsonToObjects in your own App 
 
-'AlamofireJsonToObjects' is now available through the dependency manager [CocoaPods](http://cocoapods.org). 
+'AlamofireJsonToObjects' is available through the dependency manager [CocoaPods](http://cocoapods.org). 
 You do have to use cocoapods version 0.36 or later
 
 You can just add AlamofireJsonToObjects to your workspace by adding the folowing 2 lines to your Podfile:
