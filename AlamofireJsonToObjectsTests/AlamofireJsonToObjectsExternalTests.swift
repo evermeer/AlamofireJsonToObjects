@@ -59,6 +59,7 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
         Alamofire.request(.GET, URL, parameters: nil)
             .responseArray { (response: [User]?, error: NSError?) in
                 
+                // That's all... Now test the data
                 expectation.fulfill()
                 println("\(response?.description)")
                 
