@@ -21,7 +21,7 @@ AlamofireJsonToObjects is based on the folowing libraries:
 
 This library was greatly inspired by [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)
 
-Run the tests to see AlamofireJsonToObjects in action.
+Run the tests to see AlamofireJsonToObjects in action. (Including a Wordpress posts api call)
 
 ## Using AlamofireJsonToObjects in your own App 
 
