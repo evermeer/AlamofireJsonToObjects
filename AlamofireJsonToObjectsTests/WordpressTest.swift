@@ -185,7 +185,7 @@ class WordpressTest: XCTestCase {
     
     
     func testEvictNl() {
-        let URL = "https://public-api.wordpress.com/rest/v1/sites/evict.nl/posts/"
+        let URL = "https://public-api.wordpress.com/rest/v1.1/sites/evict.nl/posts/"
         let expectation = expectationWithDescription("\(URL)")
         
         Alamofire.request(.GET, URL, parameters: nil)
@@ -196,14 +196,14 @@ class WordpressTest: XCTestCase {
                 println("\(response?.description)")
         }
         
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
+        waitForExpectationsWithTimeout(30, handler: { (error: NSError!) -> Void in
             XCTAssertNil(error, "\(error)")
         })
     }
 
 
     func testGenseiryuNl() {
-        let URL = "https://public-api.wordpress.com/rest/v1/sites/genseiryu.nl/posts/"
+        let URL = "https://public-api.wordpress.com/rest/v1.1/sites/genseiryu.nl/posts/"
         let expectation = expectationWithDescription("\(URL)")
         
         Alamofire.request(.GET, URL, parameters: nil)
@@ -214,7 +214,7 @@ class WordpressTest: XCTestCase {
                 println("\(response?.description)")
         }
         
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
+        waitForExpectationsWithTimeout(30, handler: { (error: NSError!) -> Void in
             XCTAssertNil(error, "\(error)")
         })
     }
@@ -231,7 +231,7 @@ class WordpressTest: XCTestCase {
                 println("\(response?.description)")
         }
         
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
+        waitForExpectationsWithTimeout(30, handler: { (error: NSError!) -> Void in
             XCTAssertNil(error, "\(error)")
         })
     }
