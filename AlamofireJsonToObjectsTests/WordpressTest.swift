@@ -62,6 +62,17 @@ class Post: EVObject {
     var current_user_can: Capabilities?
     var capabilities: Capabilities?
     var post_thumbnail: Attachment?
+    var page_template: String?
+    var attachment_count: Int = 0
+    var discussion: Discussion?
+}
+
+class Discussion: EVObject {
+    var comments_open: Bool = false
+    var comment_status: String?
+    var pings_open: Bool = false
+    var ping_status: String?
+    var comment_count: Int = 0
 }
 
 class Meta: EVObject {
@@ -74,6 +85,7 @@ class Links: EVObject {
     var site: String?
     var replies: String?
     var likes: String?
+    var counts: String?
 }
 
 class Metadata: EVObject {
@@ -206,4 +218,27 @@ class WordpressTest: XCTestCase {
             XCTAssertNil(error, "\(error)")
         })
     }
+
+    func testBlusMuchNl() {
+        let URL = "https://public-api.wordpress.com/rest/v1.1/sites/www.blushmuch.nl/posts/"
+        let expectation = expectationWithDescription("\(URL)")
+        
+        Alamofire.request(.GET, URL, parameters: nil)
+            .responseObject { (response: Posts?, error: NSError?) in
+                
+                // That's all... Now test the data... TODO
+                expectation.fulfill()
+                println("\(response?.description)")
+        }
+        
+        waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
+            XCTAssertNil(error, "\(error)")
+        })
+    }
+
+    
+    
+    
+    
+    
 }
