@@ -11,6 +11,7 @@
 		7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */; };
 		7F193D1B1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */; };
 		7F193D251B36E69A000C1C34 /* AlamofireJsonToObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F193D241B36E69A000C1C34 /* AlamofireJsonToObjects.swift */; };
+		7F2044C21B51BD3300D1911C /* WordpressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2044C11B51BD3300D1911C /* WordpressTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7F193D271B371199000C1C34 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7F193D281B371199000C1C34 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7F193D291B371199000C1C34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7F2044C11B51BD3300D1911C /* WordpressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressTest.swift; sourceTree = "<group>"; };
 		D677D3219B88BF4F23BB82AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F606499370CA4179D980B85D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */,
 				7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */,
 				7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */,
+				7F2044C11B51BD3300D1911C /* WordpressTest.swift */,
 				7F193D181B36E629000C1C34 /* Supporting Files */,
 			);
 			path = AlamofireJsonToObjectsTests;
@@ -143,6 +146,7 @@
 		7F193CF71B36E628000C1C34 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = evict;
 				TargetAttributes = {
@@ -236,6 +240,7 @@
 				7F193D251B36E69A000C1C34 /* AlamofireJsonToObjects.swift in Sources */,
 				7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */,
 				7F193D1B1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift in Sources */,
+				7F2044C21B51BD3300D1911C /* WordpressTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
