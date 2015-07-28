@@ -46,6 +46,7 @@ pod 'AlamofireJsonToObjects', :git => 'https://github.com/evermeer/AlamofireJson
 Version 0.36 of cocoapods will make a dynamic framework of all the pods that you use. Because of that it's only supported in iOS 8.0 or later. When using a framework, you also have to add an import at the top of your swift file like this:
 
 ```
+import EVReflection
 import AlamofireJsonToObjects
 ```
 
