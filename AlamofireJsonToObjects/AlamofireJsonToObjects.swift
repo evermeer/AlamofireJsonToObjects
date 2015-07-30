@@ -47,7 +47,7 @@ extension Request {
     public func responseObject<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest, NSHTTPURLResponse?, T?, AnyObject?, NSError?) -> Void) -> Self {
         return responseString{(request, response, data, error) in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                let parsedObject:T? = T(json: data!)
+                let parsedObject:T? = T(json: data)
                 dispatch_async(queue ?? dispatch_get_main_queue()) {
                     completionHandler(self.request, self.response, parsedObject, data, error)
                 }
@@ -93,7 +93,7 @@ extension Request {
     public func responseArray<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest, NSHTTPURLResponse?, [T]?, AnyObject?, NSError?) -> Void) -> Self {
         return responseString{(request, response, data, error) in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                let parsedObject:[T]? = EVReflection.arrayFromJson(T(), json: data!)
+                let parsedObject:[T]? = EVReflection.arrayFromJson(T(), json: data)
                 dispatch_async(queue ?? dispatch_get_main_queue()) {
                     completionHandler(self.request, self.response, parsedObject, data, error)
                 }

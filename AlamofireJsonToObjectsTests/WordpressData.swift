@@ -52,7 +52,7 @@ class Post: EVObject {
     var tags: Tags?
     var categories: Categories?
     var attachments: Attachments?
-    var metadata: [Metadata] = [Metadata]()
+    var metadata: [Metadata]? = [Metadata]()
     var meta: Meta?
     var current_user_can: Capabilities?
     var capabilities: Capabilities?
