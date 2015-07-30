@@ -23,6 +23,10 @@ This library was greatly inspired by [AlamofireObjectMapper](https://github.com/
 
 Run the tests to see AlamofireJsonToObjects in action. (Including a Wordpress posts api call)
 
+AlamofireJsonToObjects is used in:
+- [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI)
+
+
 ## Using AlamofireJsonToObjects in your own App 
 
 'AlamofireJsonToObjects' is available through the dependency manager [CocoaPods](http://cocoapods.org). 
