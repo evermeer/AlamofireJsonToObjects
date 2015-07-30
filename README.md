@@ -24,7 +24,7 @@ This library was greatly inspired by [AlamofireObjectMapper](https://github.com/
 Run the tests to see AlamofireJsonToObjects in action. (Including a Wordpress posts api call)
 
 AlamofireJsonToObjects is used in:
-- [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI)
+- [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI) A Swift Implementation of the WordPress (Jetpack) API
 
 
 ## Using AlamofireJsonToObjects in your own App 
