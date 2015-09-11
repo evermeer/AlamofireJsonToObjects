@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode7
+
+before_install:
+- gem install cocoapods
+- export LANG=en_US.UTF-8
+- brew update
+- if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+
+script:
+- xctool clean build -workspace AlamofireJsonToObjects.xcworkspace -scheme AlamofireJsonToObjectsTests -sdk iphonesimulator9.0 ONLY_ACTIVE_ARCH=NO
+

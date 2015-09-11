@@ -21,6 +21,8 @@
 		7F0859E71B4008B0009F0B0D /* AlamofireJsonToObjects.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlamofireJsonToObjects.podspec; sourceTree = "<group>"; };
 		7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireJsonToObjectsExternalTests.swift; sourceTree = "<group>"; };
 		7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_users_array_json; sourceTree = "<group>"; };
+		7F159DFC1BA2FA6900247CB1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7F159DFE1BA307F500247CB1 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		7F193D141B36E629000C1C34 /* AlamofireJsonToObjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireJsonToObjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F193D191B36E629000C1C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireJsonToObjectsTests.swift; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		7F193CF61B36E628000C1C34 = {
 			isa = PBXGroup;
 			children = (
+				7F159DFC1BA2FA6900247CB1 /* .gitignore */,
+				7F159DFE1BA307F500247CB1 /* .travis.yml */,
 				7F193D261B371199000C1C34 /* circle.yml */,
 				7F193D271B371199000C1C34 /* LICENSE */,
 				7F193D281B371199000C1C34 /* Podfile */,
