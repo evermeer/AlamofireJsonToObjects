@@ -154,7 +154,6 @@
 				TargetAttributes = {
 					7F193D131B36E629000C1C34 = {
 						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 7F193CFE1B36E628000C1C34;
 					};
 				};
 			};
@@ -337,7 +336,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F606499370CA4179D980B85D /* Pods.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AlamofireJsonToObjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
@@ -349,7 +347,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D677D3219B88BF4F23BB82AB /* Pods.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AlamofireJsonToObjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
