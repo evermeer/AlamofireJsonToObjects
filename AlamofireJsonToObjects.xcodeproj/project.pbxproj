@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		162A6A42C1CC4AEA431F8499 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44053659CBEA703FF31F494B /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */; };
-		7F0B3EAA1B53175E005A2677 /* WordpressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B3EA91B53175E005A2677 /* WordpressData.swift */; };
+		7F0AB8D61B42A597009DBBE1 /* sample_users_array_json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */; };
 		7F193D1B1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */; };
 		7F193D251B36E69A000C1C34 /* AlamofireJsonToObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F193D241B36E69A000C1C34 /* AlamofireJsonToObjects.swift */; };
-		7F2044C21B51BD3300D1911C /* WordpressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2044C11B51BD3300D1911C /* WordpressTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +21,6 @@
 		7F0859E71B4008B0009F0B0D /* AlamofireJsonToObjects.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = AlamofireJsonToObjects.podspec; sourceTree = "<group>"; };
 		7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireJsonToObjectsExternalTests.swift; sourceTree = "<group>"; };
 		7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_users_array_json; sourceTree = "<group>"; };
-		7F0B3EA91B53175E005A2677 /* WordpressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressData.swift; sourceTree = "<group>"; };
 		7F193D141B36E629000C1C34 /* AlamofireJsonToObjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireJsonToObjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F193D191B36E629000C1C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireJsonToObjectsTests.swift; sourceTree = "<group>"; };
@@ -31,7 +29,6 @@
 		7F193D271B371199000C1C34 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7F193D281B371199000C1C34 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7F193D291B371199000C1C34 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		7F2044C11B51BD3300D1911C /* WordpressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordpressTest.swift; sourceTree = "<group>"; };
 		D677D3219B88BF4F23BB82AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F606499370CA4179D980B85D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,8 +94,6 @@
 				7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */,
 				7F193D1A1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift */,
 				7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */,
-				7F0B3EA91B53175E005A2677 /* WordpressData.swift */,
-				7F2044C11B51BD3300D1911C /* WordpressTest.swift */,
 				7F193D181B36E629000C1C34 /* Supporting Files */,
 			);
 			path = AlamofireJsonToObjectsTests;
@@ -150,7 +145,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = evict;
 				TargetAttributes = {
 					7F193D131B36E629000C1C34 = {
@@ -182,6 +177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0AB8D61B42A597009DBBE1 /* sample_users_array_json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +239,6 @@
 				7F193D251B36E69A000C1C34 /* AlamofireJsonToObjects.swift in Sources */,
 				7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */,
 				7F193D1B1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift in Sources */,
-				7F0B3EAA1B53175E005A2677 /* WordpressData.swift in Sources */,
-				7F2044C21B51BD3300D1911C /* WordpressTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +266,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -341,6 +336,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AlamofireJsonToObjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AlamofireJsonToObjectsTests;
 			};
 			name = Debug;
@@ -352,6 +348,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AlamofireJsonToObjectsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AlamofireJsonToObjectsTests;
 			};
 			name = Release;

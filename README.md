@@ -21,11 +21,7 @@ AlamofireJsonToObjects is based on the folowing libraries:
 
 This library was greatly inspired by [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)
 
-Run the tests to see AlamofireJsonToObjects in action. (Including a Wordpress posts api call)
-
-AlamofireJsonToObjects is used in:
-- [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI) A Swift Implementation of the WordPress (Jetpack) API
-
+Run the tests to see AlamofireJsonToObjects in action.
 
 ## Using AlamofireJsonToObjects in your own App 
 
@@ -39,18 +35,15 @@ use_frameworks!
 pod "AlamofireJsonToObjects"
 ```
 
-If you are using Swift 2.0 (tested with beta 2) then instead put the folowing lines in your Podfile:
-
+I have now moved on to Swift 2. If you want to use AlamofireJsonToObjects, then get that version by using the podfile command:
 ```
 use_frameworks!
-pod 'AlamofireJsonToObjects', :git => 'https://github.com/evermeer/AlamofireJsonToObjects.git', :branch => 'Swift2'
+pod "AlamofireJsonToObjects", '~> 1.0'
 ```
-
 
 Version 0.36 of cocoapods will make a dynamic framework of all the pods that you use. Because of that it's only supported in iOS 8.0 or later. When using a framework, you also have to add an import at the top of your swift file like this:
 
 ```
-import EVReflection
 import AlamofireJsonToObjects
 ```
 
@@ -87,4 +80,18 @@ class AlamofireJsonToObjectsTests: XCTestCase {
 
 ```
 
+## License
 
+AlamofireJsonToObjects is available under the MIT 3 license. See the LICENSE file for more info.
+
+## My other libraries:
+Also see my other open source iOS libraries:
+
+- [EVReflection](https://github.com/evermeer/EVReflection) - Swift library with reflection functions with support for NSCoding, Printable, Hashable, Equatable and JSON 
+- [EVCloudKitDao](https://github.com/evermeer/EVCloudKitDao) - Simplified access to Apple's CloudKit
+- [EVFaceTracker](https://github.com/evermeer/EVFaceTracker) - Calculate the distance and angle of your device with regards to your face in order to simulate a 3D effect
+- [EVURLCache](https://github.com/evermeer/EVURLCache) - a NSURLCache subclass for handling all web requests that use NSURLReques
+- [AlamofireJsonToObject](https://github.com/evermeer/AlamofireJsonToObjects) - An Alamofire extension which converts JSON response data into swift objects using EVReflection
+- [AlamofireOauth2](https://github.com/evermeer/AlamofireOauth2) - A swift implementation of OAuth2 using Alamofire
+- [EVWordPressAPI](https://github.com/evermeer/EVWordPressAPI) - Swift Implementation of the WordPress (Jetpack) API using AlamofireOauth2, AlomofireJsonToObjects and EVReflection (work in progress)
+- [PassportScanner](https://github.com/evermeer/PassportScanner) - Scan the MRZ code of a passport and extract the firstname, lastname, passport number, nationality, date of birth, expiration date and personal numer.
