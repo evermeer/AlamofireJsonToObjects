@@ -1,13 +1,13 @@
 PODS:
-  - Alamofire (2.0.2)
-  - EVReflection (2.9.0)
+  - Alamofire (HEAD based on 3.0.0-beta.3)
+  - EVReflection (2.9.1)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (HEAD)
   - EVReflection
 
 SPEC CHECKSUMS:
-  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  EVReflection: ea03fe02b241aa1678a1a9728866ac5e91f608d8
+  Alamofire: c89149e58431f6f94527e8c01f920456afe39bd0
+  EVReflection: 265fe06ecdbd3ef19679c9b97366daa236f2ede8
 
 COCOAPODS: 0.38.2
