@@ -3,7 +3,7 @@
 <!---
  [![Circle CI](https://img.shields.io/circleci/project/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://circleci.com/gh/evermeer/AlamofireJsonToObjects)
  -->
-[![Build Status](https://travis-ci.org/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://travis-ci.org/evermeer/AlamofireJsonToObjects)
+[![Build Status](https://travis-ci.org/evermeer/AlamofireJsonToObjects.svg?branch=master)](https://travis-ci.org/evermeer/AlamofireJsonToObjects)
 [![Issues](https://img.shields.io/github/issues-raw/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/issues)
 [![Documentation](https://img.shields.io/badge/documented-100%-brightgreen.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
 [![Stars](https://img.shields.io/github/stars/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/stargazers)
