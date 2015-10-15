@@ -19,7 +19,7 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseObject<T:EVObject>(completionHandler: (Result<T>) -> Void) -> Self {
+    public func responseObject<T:EVObject>(completionHandler: (Result<T, NSError>) -> Void) -> Self {
         return responseObject(nil) { (request, response, data) in
             completionHandler(data)
         }
@@ -32,7 +32,7 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseObject<T:EVObject>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T>) -> Void) -> Self {
+    public func responseObject<T:EVObject>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T, NSError>) -> Void) -> Self {
         return responseObject(nil) { (request, response, data) in
             completionHandler(request, response, data)
         }
@@ -46,18 +46,20 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseObject<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T>) -> Void) -> Self {
-        return responseString(completionHandler: {(request, response, data) in
+    public func responseObject<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T, NSError>) -> Void) -> Self {
+        return responseString(completionHandler: { (response) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 dispatch_async(queue ?? dispatch_get_main_queue()) {
-                    if data.isSuccess {
-                        completionHandler(self.request, self.response, Result.Success(T(json: data.value)))
-                    } else {
-                        completionHandler(self.request, self.response, Result<T>.Failure(data.data, data.error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
+                    switch response.result {
+                    case .Success(let json):
+                        completionHandler(self.request, self.response, Result.Success(T(json: json)))
+                    case .Failure(let error):
+                        completionHandler(self.request, self.response, Result.Failure(error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
                     }
                 }
             }
-        } )
+            
+        })
     }
     
     // MARK: Array responses
@@ -69,7 +71,7 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseArray<T:EVObject>(completionHandler: (Result<[T]>) -> Void) -> Self {
+    public func responseArray<T:EVObject>(completionHandler: (Alamofire.Result<[T], NSError>) -> Void) -> Self {
         return responseArray { (request, response, data) -> Void in
             completionHandler(data)
         }
@@ -82,7 +84,7 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseArray<T:EVObject>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T]>) -> Void) -> Self {
+    public func responseArray<T:EVObject>(completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T], NSError>) -> Void) -> Self {
         return responseArray(nil, completionHandler: completionHandler)
     }
     
@@ -94,18 +96,20 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseArray<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T]>) -> Void) -> Self {
-        return responseString{(request, response, data) in
+    public func responseArray<T:EVObject>(queue: dispatch_queue_t?, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T], NSError>) -> Void) -> Self {
+        return responseString(completionHandler: { (response) -> Void in
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 dispatch_async(queue ?? dispatch_get_main_queue()) {
-                    if data.isSuccess {
-                        let parsedObject:[T]? = T.arrayFromJson(data.value)
+                    switch response.result {
+                    case .Success(let json):
+                        let parsedObject:[T]? = T.arrayFromJson(json)
                         completionHandler(self.request, self.response, Result.Success(parsedObject!))
-                    } else {
-                        completionHandler(self.request, self.response, Result<[T]>.Failure(data.data, data.error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
+                    case .Failure(let error):
+                        completionHandler(self.request, self.response, Result.Failure(error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
                     }
                 }
             }
-        }
+            
+        })
     }
 }

@@ -42,7 +42,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let expectation = expectationWithDescription("\(URL)")
                         
             Alamofire.request(.GET, URL)
-                .responseObject { (response: Result<WeatherResponse>) in
+                .responseObject { (response: Result<WeatherResponse, NSError>) in
                 
                 expectation.fulfill()
                 if let result = response.value {
@@ -75,7 +75,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL)
-                .responseObject { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<WeatherResponse>) in
+                .responseObject { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<WeatherResponse, NSError>) in
                     
                 expectation.fulfill()
                     if let result = response.value {
@@ -103,7 +103,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL)
-            .responseArray { (response: Result<[Forecast]>) in
+            .responseArray { (response: Result<[Forecast], NSError>) in
                 expectation.fulfill()
 
                 if let result = response.value {
@@ -129,7 +129,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             let expectation = expectationWithDescription("\(URL)")
             
             Alamofire.request(.GET, URL)
-                .responseArray { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<[Forecast]>) in
+                .responseArray { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<[Forecast], NSError>) in
                 expectation.fulfill()
                 
                 if let result = response.value {

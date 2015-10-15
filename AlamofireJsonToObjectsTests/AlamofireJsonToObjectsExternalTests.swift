@@ -57,7 +57,7 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
         let expectation = expectationWithDescription("\(URL)")
 
         Alamofire.request(.GET, URL)
-            .responseArray { (response: Result<[User]>) in
+            .responseArray { (response: Result<[User], NSError>) in
             expectation.fulfill()
 
             if let result = response.value {
