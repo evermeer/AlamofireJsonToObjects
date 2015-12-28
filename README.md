@@ -74,11 +74,12 @@ class Forecast: EVObject {
 class AlamofireJsonToObjectsTests: XCTestCase {
     func testResponseObject() {
         let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
-        Alamofire.request(.GET, URL, parameters: nil)
-        .responseObject { (response: WeatherResponse?, error: NSError?) in
+        Alamofire.request(.GET, URL)
+           .responseObject { (response: Result<WeatherResponse, NSError>) in
+           if let result = response.value {
             // That was all... You now have a WeatherResponse object with data
+           }
         }
-
         waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
             XCTAssertNil(error, "\(error)")
         })
