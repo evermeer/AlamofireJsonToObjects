@@ -49,6 +49,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                     print("\(result.description)")
                     XCTAssertNotNil(result.location, "Location should not be nil")
                     XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
+                    XCTAssertEqual(result.three_day_forecast.count, 3, "ThreeDayForcast should have 2 items.")
                     for forecast in result.three_day_forecast {
                         XCTAssertNotNil(forecast.day, "day should not be nil")
                         XCTAssertNotNil(forecast.conditions, "conditions should not be nil")
@@ -81,7 +82,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                     if let result = response.value {
                         XCTAssertNotNil(result.location, "Location should not be nil")
                         XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
-                        
+                        XCTAssertEqual(result.three_day_forecast.count, 3, "ThreeDayForcast should have 2 items.")
                         for forecast in result.three_day_forecast {
                             XCTAssertNotNil(forecast.day, "day should not be nil")
                             XCTAssertNotNil(forecast.conditions, "conditions should not be nil")
