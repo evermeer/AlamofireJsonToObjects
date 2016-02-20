@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C19B4F9D520F2B5B71E756B /* Pods_AlamofireJsonToObjectsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FF2AC2E965AF108E09711C /* Pods_AlamofireJsonToObjectsTests.framework */; };
+		4A1DA2901C77E9A100FD5E44 /* AlamofireJsonToObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1DA28F1C77E9A100FD5E44 /* AlamofireJsonToObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A1DA2961C77EA4A00FD5E44 /* EVReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1DA2951C77EA4A00FD5E44 /* EVReflection.framework */; };
 		5D336423675BD55337ABC97E /* Pods_AlamofireJsonToObjectsTestsOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821BB19C2326EDCAF18379A2 /* Pods_AlamofireJsonToObjectsTestsOSX.framework */; };
 		7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */; };
 		7F0AB8D61B42A597009DBBE1 /* sample_users_array_json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */; };
@@ -26,6 +28,10 @@
 /* Begin PBXFileReference section */
 		3F36EE9A625A1DBAB58EF60F /* Pods-AlamofireJsonToObjectsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTests/Pods-AlamofireJsonToObjectsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		44053659CBEA703FF31F494B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1DA28D1C77E9A100FD5E44 /* AlamofireJsonToObjects.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireJsonToObjects.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1DA28F1C77E9A100FD5E44 /* AlamofireJsonToObjects.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlamofireJsonToObjects.h; sourceTree = "<group>"; };
+		4A1DA2911C77E9A100FD5E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A1DA2951C77EA4A00FD5E44 /* EVReflection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EVReflection.framework; path = Carthage/Build/Mac/EVReflection.framework; sourceTree = "<group>"; };
 		52000D1F0203575E2C8EBB1D /* Pods-AlamofireJsonToObjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTests/Pods-AlamofireJsonToObjectsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7829ADCD097F8F289750B52C /* Pods-AlamofireJsonToObjectsTestsOSX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTestsOSX.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTestsOSX/Pods-AlamofireJsonToObjectsTestsOSX.release.xcconfig"; sourceTree = "<group>"; };
 		7F0859E51B3FF67B009F0B0D /* sample_array_json */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample_array_json; sourceTree = "<group>"; };
@@ -52,6 +58,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A1DA2891C77E9A100FD5E44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1DA2961C77EA4A00FD5E44 /* EVReflection.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F193D111B36E629000C1C34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,6 +120,7 @@
 			children = (
 				7F193D141B36E629000C1C34 /* AlamofireJsonToObjectsTests.xctest */,
 				7F2976601BB963100074C85A /* AlamofireJsonToObjectsTestsOSX.xctest */,
+				4A1DA28D1C77E9A100FD5E44 /* AlamofireJsonToObjects.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,7 +128,9 @@
 		7F193D011B36E628000C1C34 /* AlamofireJsonToObjects */ = {
 			isa = PBXGroup;
 			children = (
+				4A1DA28F1C77E9A100FD5E44 /* AlamofireJsonToObjects.h */,
 				7F193D241B36E69A000C1C34 /* AlamofireJsonToObjects.swift */,
+				4A1DA2911C77E9A100FD5E44 /* Info.plist */,
 			);
 			path = AlamofireJsonToObjects;
 			sourceTree = "<group>";
@@ -146,13 +163,43 @@
 				44053659CBEA703FF31F494B /* Pods.framework */,
 				83FF2AC2E965AF108E09711C /* Pods_AlamofireJsonToObjectsTests.framework */,
 				821BB19C2326EDCAF18379A2 /* Pods_AlamofireJsonToObjectsTestsOSX.framework */,
+				4A1DA2951C77EA4A00FD5E44 /* EVReflection.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4A1DA28A1C77E9A100FD5E44 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1DA2901C77E9A100FD5E44 /* AlamofireJsonToObjects.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		4A1DA28C1C77E9A100FD5E44 /* AlamofireJsonToObjects */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A1DA2941C77E9A100FD5E44 /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjects" */;
+			buildPhases = (
+				4A1DA2881C77E9A100FD5E44 /* Sources */,
+				4A1DA2891C77E9A100FD5E44 /* Frameworks */,
+				4A1DA28A1C77E9A100FD5E44 /* Headers */,
+				4A1DA28B1C77E9A100FD5E44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlamofireJsonToObjects;
+			productName = AlamofireJsonToObjects;
+			productReference = 4A1DA28D1C77E9A100FD5E44 /* AlamofireJsonToObjects.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		7F193D131B36E629000C1C34 /* AlamofireJsonToObjectsTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F193D211B36E629000C1C34 /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjectsTests" */;
@@ -203,6 +250,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = evict;
 				TargetAttributes = {
+					4A1DA28C1C77E9A100FD5E44 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					7F193D131B36E629000C1C34 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -226,11 +276,19 @@
 			targets = (
 				7F193D131B36E629000C1C34 /* AlamofireJsonToObjectsTests */,
 				7F29765F1BB963100074C85A /* AlamofireJsonToObjectsTestsOSX */,
+				4A1DA28C1C77E9A100FD5E44 /* AlamofireJsonToObjects */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A1DA28B1C77E9A100FD5E44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F193D121B36E629000C1C34 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +405,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A1DA2881C77E9A100FD5E44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F193D101B36E629000C1C34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +435,63 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		4A1DA2921C77E9A100FD5E44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = AlamofireJsonToObjects/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4A1DA2931C77E9A100FD5E44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = AlamofireJsonToObjects/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7F193D1C1B36E629000C1C34 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +630,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A1DA2941C77E9A100FD5E44 /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjects" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A1DA2921C77E9A100FD5E44 /* Debug */,
+				4A1DA2931C77E9A100FD5E44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7F193CFA1B36E628000C1C34 /* Build configuration list for PBXProject "AlamofireJsonToObjects" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
