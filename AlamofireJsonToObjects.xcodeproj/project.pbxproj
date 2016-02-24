@@ -520,9 +520,9 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AlamofireJsonToObjects/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
 				PRODUCT_NAME = AlamofireJsonToObjects;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -544,9 +544,9 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AlamofireJsonToObjects/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
 				PRODUCT_NAME = AlamofireJsonToObjects;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -573,8 +573,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/AlamofireJsonToObjects/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
 				PRODUCT_NAME = AlamofireJsonToObjects;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -601,8 +601,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/AlamofireJsonToObjects/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = org.emptypage.AlamofireJsonToObjects;
 				PRODUCT_NAME = AlamofireJsonToObjects;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -756,6 +756,7 @@
 				4A828B7F1C7801F50045D2D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A828B961C7804E60045D2D6 /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjects OSX" */ = {
 			isa = XCConfigurationList;
@@ -764,6 +765,7 @@
 				4A828B981C7804E60045D2D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F193CFA1B36E628000C1C34 /* Build configuration list for PBXProject "AlamofireJsonToObjects" */ = {
 			isa = XCConfigurationList;
