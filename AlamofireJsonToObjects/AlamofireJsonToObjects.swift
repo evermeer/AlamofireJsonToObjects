@@ -41,7 +41,10 @@ extension Request {
                 dispatch_async(queue ?? dispatch_get_main_queue()) {
                     switch response.result {
                     case .Success(let json):
-                        completionHandler(self.request, self.response, Result.Success(T(json: json)))
+                        let t = T()
+                        let jsonDict = EVReflection.dictionaryFromJson(json)
+                        EVReflection.setPropertiesfromDictionary(jsonDict, anyObject: t)
+                        completionHandler(self.request, self.response, Result.Success(t))
                     case .Failure(let error):
                         completionHandler(self.request, self.response, Result.Failure(error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
                     }
