@@ -29,6 +29,8 @@
 		7F29766D1BB9645F0074C85A /* AlamofireJsonToObjectsExternalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0AB8D31B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift */; };
 		7F29766E1BB964600074C85A /* sample_array_json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0859E51B3FF67B009F0B0D /* sample_array_json */; };
 		7F29766F1BB964600074C85A /* sample_json in Resources */ = {isa = PBXBuildFile; fileRef = 7F0859E61B3FF67B009F0B0D /* sample_json */; };
+		7FA6A6931D522E8C00DF83E9 /* NestedGenericsIssue25.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6A6921D522E8C00DF83E9 /* NestedGenericsIssue25.swift */; };
+		7FA6A6951D5230CC00DF83E9 /* NestedGenericsIssue25_json in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6A6941D5230CC00DF83E9 /* NestedGenericsIssue25_json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		7F2976641BB963100074C85A /* osx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "osx-Info.plist"; path = "AlamofireJsonToObjectsTests/osx-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7F479E161C79000D00F03BEF /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		7F479E171C79000D00F03BEF /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		7FA6A6921D522E8C00DF83E9 /* NestedGenericsIssue25.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedGenericsIssue25.swift; sourceTree = "<group>"; };
+		7FA6A6941D5230CC00DF83E9 /* NestedGenericsIssue25_json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NestedGenericsIssue25_json; sourceTree = "<group>"; };
 		801E44061F0ECE6A4F81EC71 /* Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTestsOSX/Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		88F1D9E1204293E3BF5BEFD0 /* Pods_AlamofireJsonToObjectsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireJsonToObjectsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F45A0F447339976CDFE4FA7 /* Pods-AlamofireJsonToObjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTests/Pods-AlamofireJsonToObjectsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 		7F193D171B36E629000C1C34 /* AlamofireJsonToObjectsTests */ = {
 			isa = PBXGroup;
 			children = (
+				7FA6A6911D522E5700DF83E9 /* Issues */,
 				7F0859E51B3FF67B009F0B0D /* sample_array_json */,
 				7F0859E61B3FF67B009F0B0D /* sample_json */,
 				7F0AB8D51B42A597009DBBE1 /* sample_users_array_json */,
@@ -163,6 +168,15 @@
 				7F193D191B36E629000C1C34 /* ios-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7FA6A6911D522E5700DF83E9 /* Issues */ = {
+			isa = PBXGroup;
+			children = (
+				7FA6A6921D522E8C00DF83E9 /* NestedGenericsIssue25.swift */,
+				7FA6A6941D5230CC00DF83E9 /* NestedGenericsIssue25_json */,
+			);
+			name = Issues;
 			sourceTree = "<group>";
 		};
 		BD1217F53E72D1B0079AB237 /* Pods */ = {
@@ -354,6 +368,7 @@
 			files = (
 				7F29766E1BB964600074C85A /* sample_array_json in Resources */,
 				7F0AB8D61B42A597009DBBE1 /* sample_users_array_json in Resources */,
+				7FA6A6951D5230CC00DF83E9 /* NestedGenericsIssue25_json in Resources */,
 				7F29766F1BB964600074C85A /* sample_json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F193D251B36E69A000C1C34 /* AlamofireJsonToObjects.swift in Sources */,
+				7FA6A6931D522E8C00DF83E9 /* NestedGenericsIssue25.swift in Sources */,
 				7F0AB8D41B429B40009DBBE1 /* AlamofireJsonToObjectsExternalTests.swift in Sources */,
 				7F193D1B1B36E629000C1C34 /* AlamofireJsonToObjectsTests.swift in Sources */,
 			);
