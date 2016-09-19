@@ -24,7 +24,7 @@ class ResponseModel<T: BaseModel>: EVObject, EVGenericsKVC {
     var reason: String?
     var content: [T]?
 
-    internal override func setValue(value: AnyObject!, forUndefinedKey key: String) {
+    internal func setGenericValue(_ value: AnyObject!, forUndefinedKey key: String) {
         if(key == "content") {
             content = value as? [T]
         }
@@ -51,7 +51,7 @@ class PagerModel<T: BaseModel>: BaseModel, EVGenericsKVC {
     var to: String?
     var data: [T]?
 
-    internal  override func setValue(value: AnyObject!, forUndefinedKey key: String) {
+    internal func setGenericValue(_ value: AnyObject!, forUndefinedKey key: String) {
         if(key == "data") {
             data = value  as? [T]
         }
@@ -90,20 +90,19 @@ class BaseWebServices<T: BaseModel> : NSObject {
     let BASE_URL: String! = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/"
     var listener: ResponseListener?
 
-    func executeService(serviceUrl: String, method: Alamofire.Method, parameters: [String: AnyObject]) {
+    func executeService(serviceUrl: String, parameters: [String: Any]) {
         let URL: String = "\(self.BASE_URL)\(serviceUrl)"
-        Alamofire.request(method, URL, parameters:parameters)
-            .responseObject { (response: Result<ResponseModel<T>, NSError>) in
+        
+        Alamofire.request(URL) //, method: HTTPMethod.get, parameters: parameters, encoding: .UTF8, headers: nil)
+            .responseObject { (response: Result<ResponseModel<T>>) in
                 switch response {
-                case .Success( _)  :
-                    if let result: ResponseModel<T> = response.value {
-                        print("result = \(result)")
-                        self.listener?.onResponseSuccess(result)
-                    }
+                case .success(let result) :
+                    print("result = \(result)")
+                    self.listener?.onResponseSuccess(result: result)
                     break
-                case .Failure(let error) :
+                case .failure(let error) :
                     print("error = \(error)")
-                    self.listener?.onResponseFail(error)
+                    self.listener?.onResponseFail(error: error as NSError)
                     break
                 }
         }
@@ -115,22 +114,22 @@ class NewsHeaderService: BaseWebServices<PagerModel<NewsHeader>>, ResponseListen
     override  init() {
         super.init()
         super.listener = self
-        executeService("NestedGenericsIssue25_json", method: .GET, parameters: ["token": "testtoken"])
+        executeService(serviceUrl: "NestedGenericsIssue25_json", parameters: ["token": "testtoken"])
     }
 
     // This initializer is just to let the test continue
     var continueTest: (() -> ())?
-    convenience init(continueTest: () -> ()) {
+    convenience init(continueTest: @escaping () -> ()) {
         self.init()
         self.continueTest = continueTest
     }
 
 
-    func onResponseSuccess<T: BaseModel>(response: ResponseModel<T>) {
+    func onResponseSuccess<T: BaseModel>(result response: ResponseModel<T>) {
         continueTest?()
     }
 
-    func onResponseFail(failMessage: NSError) {
+    func onResponseFail(error failMessage: NSError) {
         continueTest?()
     }
 }
@@ -141,7 +140,7 @@ class NestedGenericsIssue25: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        EVReflection.setBundleIdentifier(BaseModel)
+        EVReflection.setBundleIdentifier(BaseModel.self)
     }
 
     override func tearDown() {
@@ -150,15 +149,15 @@ class NestedGenericsIssue25: XCTestCase {
     }
 
     func testResponseObject() {
-        let expectation = expectationWithDescription("test")
+        let exp = expectation(description: "test")
 
         let _: NewsHeaderService = NewsHeaderService() {
-            expectation.fulfill()
+            exp.fulfill()
         }
 
         // Fail if the test takes longer than 10 seconds.
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+        waitForExpectations(timeout: 10) { error in
             XCTAssertNil(error, "\(error)")
-        })
+        }
     }
 }

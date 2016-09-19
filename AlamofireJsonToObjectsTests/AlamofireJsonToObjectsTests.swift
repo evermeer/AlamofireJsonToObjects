@@ -27,7 +27,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         override func setUp() {
             super.setUp()
             // Put setup code here. This method is called before the invocation of each test method in the class.
-            EVReflection.setBundleIdentifier(Forecast)
+            EVReflection.setBundleIdentifier(Forecast.self)
         }
         
         override func tearDown() {
@@ -38,13 +38,13 @@ class AlamofireJsonToObjectsTests: XCTestCase {
     
         func testResponseObject() {
             // This is an example of a functional test case.
-            let URL: URLStringConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
-            let expectation = expectationWithDescription("\(URL)")
-                        
-            Alamofire.request(.GET, URL)
-                .responseObject { (response: Result<WeatherResponse, NSError>) in
+            let URL: URLConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
+            let exp = expectation(description: "\(URL)")
+
+            Alamofire.request(URL)
+                .responseObject { (response: Result<WeatherResponse>) in
                 
-                expectation.fulfill()
+                exp.fulfill()
                 if let result = response.value {
                     print("\(result.description)")
                     XCTAssertNotNil(result.location, "Location should not be nil")
@@ -62,10 +62,10 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                 
                     
             }
-            
-            waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+
+            waitForExpectations(timeout: 10) { error in
                 XCTAssertNil(error, "\(error)")
-            })
+            }
         }
     
     
@@ -73,12 +73,12 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             // This is an example of a functional test case.
             
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
-            let expectation = expectationWithDescription("\(URL)")
+            let exp = expectation(description: "\(URL)")
             
-            Alamofire.request(.GET, URL)
-                .responseObject { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<WeatherResponse, NSError>) in
+            Alamofire.request(URL)
+                .responseObject { (request: URLRequest?, HTTPURLResponse: HTTPURLResponse?, response: Result<WeatherResponse>) in
                     
-                expectation.fulfill()
+                exp.fulfill()
                     if let result = response.value {
                         XCTAssertNotNil(result.location, "Location should not be nil")
                         XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
@@ -93,19 +93,19 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                     }
             }
             
-            waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+            waitForExpectations(timeout: 10) { error in
                 XCTAssertNil(error, "\(error)")
-            })
+            }
         }
         
         func testArrayResponseObject() {
             // This is an example of a functional test case.
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
-            let expectation = expectationWithDescription("\(URL)")
+            let exp = expectation(description: "\(URL)")
             
-            Alamofire.request(.GET, URL)
-            .responseArray { (response: Result<[Forecast], NSError>) in
-                expectation.fulfill()
+            Alamofire.request(URL)
+            .responseArray { (response: Result<[Forecast]>) in
+                exp.fulfill()
 
                 if let result = response.value {
                     for forecast in result {
@@ -119,19 +119,19 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                 
             }
             
-            waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+            waitForExpectations(timeout: 10) { error in
                 XCTAssertNil(error, "\(error)")
-            })
+            }
         }
         
         func testArrayResponseObject2() {
             // This is an example of a functional test case.
             let URL = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_array_json"
-            let expectation = expectationWithDescription("\(URL)")
+            let exp = expectation(description: "\(URL)")
             
-            Alamofire.request(.GET, URL)
-                .responseArray { (request: NSURLRequest?, HTTPURLResponse: NSHTTPURLResponse?, response: Result<[Forecast], NSError>) in
-                expectation.fulfill()
+            Alamofire.request(URL)
+                .responseArray { (request: URLRequest?, HTTPURLResponse: HTTPURLResponse?, response: Result<[Forecast]>) in
+                exp.fulfill()
                 
                 if let result = response.value {
                     for forecast in result {
@@ -145,9 +145,9 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             
             }
             
-            waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+            waitForExpectations(timeout: 10) { error in
                 XCTAssertNil(error, "\(error)")
-            })
+            }
         }
     }
 

@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "AlamofireJsonToObjects"
-s.version      = "1.6.0"
+s.version      = "2.0.0"
 s.summary      = "An Alamofire extension which converts JSON response data into swift objects using EVReflection"
 s.description  = "An Alamofire extension which converts JSON response data into swift objects using EVReflection. "
 s.homepage     = "https://github.com/evermeer/AlamofireJsonToObjects"
@@ -48,8 +48,8 @@ s.social_media_url   = "http://twitter.com/evermeer"
 #
 #  Specify the minimum deployment target
 #
-s.ios.deployment_target = '8.0'
-s.osx.deployment_target = '10.9'
+s.ios.deployment_target = '9.0'
+s.osx.deployment_target = '10.11'
 s.watchos.deployment_target = '2.0'
 
 # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

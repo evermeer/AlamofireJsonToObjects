@@ -44,7 +44,7 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        EVReflection.setBundleIdentifier(User)
+        EVReflection.setBundleIdentifier(User.self)
     }
     
     override func tearDown() {
@@ -53,40 +53,38 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
     }
     
     func testResponseObject() {
-        let URL:URLStringConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_users_array_json"
-        let expectation = expectationWithDescription("\(URL)")
+        let URL:URLConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_users_array_json"
+        let exp = expectation(description: "\(URL)")
 
-        Alamofire.request(.GET, URL)
-            .responseArray { (response: Result<[User], NSError>) in
-            expectation.fulfill()
+        Alamofire.request(URL)
+            .responseArray { (response: Result<[User]>) in
+            exp.fulfill()
 
             if let result = response.value {
                 print("\(result.description)")
                 
                 XCTAssertTrue(result.count == 10, "We should have 10 users")
                 
-                if let testUser:User = result[2] {
-                    XCTAssertTrue(testUser.id == 3, "3rd user id should be 3")
-                    XCTAssertTrue(testUser.name == "Clementine Bauch", "3rd user name should be Clementine Bauch")
+                let testUser:User = result[2]
+                XCTAssertTrue(testUser.id == 3, "3rd user id should be 3")
+                XCTAssertTrue(testUser.name == "Clementine Bauch", "3rd user name should be Clementine Bauch")
+                
+                if let address:Address = testUser.address {
+                    XCTAssertTrue(address.street == "Douglas Extension", "3rd user address street should be Douglas Extension")
+                    XCTAssertTrue(address.suite == "Suite 847", "3rd user address suite should be Suite 847")
                     
-                    if let address:Address = testUser.address {
-                        XCTAssertTrue(address.street == "Douglas Extension", "3rd user address street should be Douglas Extension")
-                        XCTAssertTrue(address.suite == "Suite 847", "3rd user address suite should be Suite 847")
-                        
-                        if let geo:Geo = address.geo {
-                            XCTAssertTrue(geo.lat == "-68.6102", "3rd user address geo lat should be -68.6102")
-                            XCTAssertTrue(geo.lng == "-47.0653", "3rd user address geo lat should be -47.0653")
-                        }
-                    } else {
-                        XCTFail("No 3rd user address in response")
+                    if let geo:Geo = address.geo {
+                        XCTAssertTrue(geo.lat == "-68.6102", "3rd user address geo lat should be -68.6102")
+                        XCTAssertTrue(geo.lng == "-47.0653", "3rd user address geo lat should be -47.0653")
                     }
                 } else {
-                    XCTFail("No 3rd user in response")
+                    XCTFail("No 3rd user address in response")
                 }
+
             }
         }
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+        waitForExpectations(timeout: 10) { error in
             XCTAssertNil(error, "\(error)")
-        })
+        }
     }
 }

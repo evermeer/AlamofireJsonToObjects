@@ -10,7 +10,7 @@ import Foundation
 import EVReflection
 import Alamofire
 
-extension Request {
+extension DataRequest {
     
     /**
     Adds a handler to be called once the request has finished.
@@ -20,11 +20,12 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseObject<T:EVObject>(encoding: NSStringEncoding? = nil, completionHandler: (Result<T, NSError>) -> Void) -> Self {
-        return responseObject(encoding: encoding) { (request, response, data: Alamofire.Result<T, NSError>) -> Void in
+    public func responseObject<T:EVObject>(_ encoding: String.Encoding? = nil, completionHandler: @escaping (Result<T>) -> Void) -> Self {
+        return responseObject(encoding: encoding) { (request, response, data: Alamofire.Result<T>) -> Void in
             completionHandler(data)
         }
     }
+    
     
     /**
     Adds a handler to be called once the request has finished.
@@ -35,18 +36,18 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseObject<T:EVObject>(queue: dispatch_queue_t? = nil, encoding: NSStringEncoding? = nil, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<T, NSError>) -> Void) -> Self {
+    public func responseObject<T:EVObject>(_ queue: DispatchQueue? = nil, encoding: String.Encoding? = nil, completionHandler: @escaping (URLRequest?, HTTPURLResponse?, Result<T>) -> Void) -> Self {
         return responseString(encoding: encoding, completionHandler: { (response) -> Void in
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                dispatch_async(queue ?? dispatch_get_main_queue()) {
+            DispatchQueue.global().async {
+                (queue ?? DispatchQueue.main).async {
                     switch response.result {
-                    case .Success(let json):
+                    case .success(let json):
                         let t = T()
                         let jsonDict = EVReflection.dictionaryFromJson(json)
-                        EVReflection.setPropertiesfromDictionary(jsonDict, anyObject: t)
-                        completionHandler(self.request, self.response, Result.Success(t))
-                    case .Failure(let error):
-                        completionHandler(self.request, self.response, Result.Failure(error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
+                        let _ = EVReflection.setPropertiesfromDictionary(jsonDict, anyObject: t)
+                        completionHandler(self.request, self.response, Result.success(t))
+                    case .failure(let error):
+                        completionHandler(self.request, self.response, Result.failure(error))
                     }
                 }
             }
@@ -63,8 +64,8 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseArray<T:EVObject>(encoding: NSStringEncoding? = nil, completionHandler: (Alamofire.Result<[T], NSError>) -> Void) -> Self {
-        return responseArray(encoding: encoding) { (request, response, data: Alamofire.Result<[T], NSError>) -> Void in
+    public func responseArray<T:EVObject>(_ encoding: String.Encoding? = nil, completionHandler: @escaping (Alamofire.Result<[T]>) -> Void) -> Self {
+        return responseArray(encoding: encoding) { (request, response, data: Alamofire.Result<[T]>) -> Void in
             completionHandler(data)
         }
     }
@@ -78,16 +79,16 @@ extension Request {
     
     - returns: The request.
     */
-    public func responseArray<T:EVObject>(queue: dispatch_queue_t? = nil, encoding: NSStringEncoding? = nil, completionHandler: (NSURLRequest?, NSHTTPURLResponse?, Result<[T], NSError>) -> Void) -> Self {
+    public func responseArray<T:EVObject>(_ queue: DispatchQueue? = nil, encoding: String.Encoding? = nil, completionHandler: @escaping (URLRequest?, HTTPURLResponse?, Result<[T]>) -> Void) -> Self {
         return responseString(encoding: encoding, completionHandler: { (response) -> Void in
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                dispatch_async(queue ?? dispatch_get_main_queue()) {
+            DispatchQueue.global().async {
+                (queue ?? DispatchQueue.main).async {
                     switch response.result {
-                    case .Success(let json):
-                        let parsedObject:[T]? = T.arrayFromJson(json)
-                        completionHandler(self.request, self.response, Result.Success(parsedObject!))
-                    case .Failure(let error):
-                        completionHandler(self.request, self.response, Result.Failure(error ?? NSError(domain: "NaN", code: 1, userInfo: nil)))
+                    case .success(let json):
+                        let parsedObject:[T] = T.arrayFromJson(json)
+                        completionHandler(self.request, self.response, Result.success(parsedObject))                        
+                    case .failure(let error):
+                        completionHandler(self.request, self.response, Result.failure(error))
                     }
                 }
             }
