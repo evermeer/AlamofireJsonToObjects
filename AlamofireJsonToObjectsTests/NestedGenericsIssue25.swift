@@ -94,8 +94,8 @@ class BaseWebServices<T: BaseModel> : NSObject {
         let URL: String = "\(self.BASE_URL)\(serviceUrl)"
         
         Alamofire.request(URL) //, method: HTTPMethod.get, parameters: parameters, encoding: .UTF8, headers: nil)
-            .responseObject { (response: Result<ResponseModel<T>>) in
-                switch response {
+            .responseObject { (response: DataResponse<ResponseModel<T>>) in
+                switch response.result {
                 case .success(let result) :
                     print("result = \(result)")
                     self.listener?.onResponseSuccess(result: result)

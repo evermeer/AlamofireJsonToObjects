@@ -11,88 +11,93 @@ import EVReflection
 import Alamofire
 
 extension DataRequest {
-    
-    /**
-    Adds a handler to be called once the request has finished.
-    
-    - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server response, falling back to the default HTTP default character set,ISO-8859-1.
-    - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped to a swift Object. The closure takes 2 arguments: the response object (of type Mappable) and any error produced while making the request
-    
-    - returns: The request.
-    */
-    public func responseObject<T:EVObject>(_ encoding: String.Encoding? = nil, completionHandler: @escaping (Result<T>) -> Void) -> Self {
-        return responseObject(encoding: encoding) { (request, response, data: Alamofire.Result<T>) -> Void in
-            completionHandler(data)
-        }
+
+    enum ErrorCode: Int {
+        case noData = 1
     }
     
-    
-    /**
-    Adds a handler to be called once the request has finished.
-    
-    - parameter queue: The queue on which the completion handler is dispatched.
-    - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server response, falling back to the default HTTP default character set,ISO-8859-1.
-    - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped to a swift Object. The closure takes 5 arguments: the URL request, the URL response, the response object (of type Mappable), the raw response data, and any error produced making the request.
-    
-    - returns: The request.
-    */
-    public func responseObject<T:EVObject>(_ queue: DispatchQueue? = nil, encoding: String.Encoding? = nil, completionHandler: @escaping (URLRequest?, HTTPURLResponse?, Result<T>) -> Void) -> Self {
-        return responseString(encoding: encoding, completionHandler: { (response) -> Void in
-            DispatchQueue.global().async {
-                (queue ?? DispatchQueue.main).async {
-                    switch response.result {
-                    case .success(let json):
-                        let t = T()
-                        let jsonDict = EVReflection.dictionaryFromJson(json)
-                        let _ = EVReflection.setPropertiesfromDictionary(jsonDict, anyObject: t)
-                        completionHandler(self.request, self.response, Result.success(t))
-                    case .failure(let error):
-                        completionHandler(self.request, self.response, Result.failure(error))
-                    }
-                }
-            }
-        })
+    internal static func newError(_ code: ErrorCode, failureReason: String) -> NSError {
+        let errorDomain = "com.alamofirejsontoobjects.error"
+        
+        let userInfo = [NSLocalizedFailureReasonErrorKey: failureReason]
+        let returnError = NSError(domain: errorDomain, code: code.rawValue, userInfo: userInfo)
+        
+        return returnError
     }
     
-    // MARK: Array responses
-    
-    /**
-    Adds a handler to be called once the request has finished.
-    
-    - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server response, falling back to the default HTTP default character set,ISO-8859-1.
-    - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped to a swift Object. The closure takes 2 arguments: the response array (of type Mappable) and any error produced while making the request
-    
-    - returns: The request.
-    */
-    public func responseArray<T:EVObject>(_ encoding: String.Encoding? = nil, completionHandler: @escaping (Alamofire.Result<[T]>) -> Void) -> Self {
-        return responseArray(encoding: encoding) { (request, response, data: Alamofire.Result<[T]>) -> Void in
-            completionHandler(data)
-        }
-    }
-    
-    /**
-    Adds a handler to be called once the request has finished.
-    
-    - parameter queue: The queue on which the completion handler is dispatched.
-    - parameter encoding: The string encoding. If `nil`, the string encoding will be determined from the server response, falling back to the default HTTP default character set,ISO-8859-1.
-    - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped to a swift Object. The closure takes 5 arguments: the URL request, the URL response, the response array (of type Mappable), the raw response data, and any error produced making the request.
-    
-    - returns: The request.
-    */
-    public func responseArray<T:EVObject>(_ queue: DispatchQueue? = nil, encoding: String.Encoding? = nil, completionHandler: @escaping (URLRequest?, HTTPURLResponse?, Result<[T]>) -> Void) -> Self {
-        return responseString(encoding: encoding, completionHandler: { (response) -> Void in
-            DispatchQueue.global().async {
-                (queue ?? DispatchQueue.main).async {
-                    switch response.result {
-                    case .success(let json):
-                        let parsedObject:[T] = T.arrayFromJson(json)
-                        completionHandler(self.request, self.response, Result.success(parsedObject))                        
-                    case .failure(let error):
-                        completionHandler(self.request, self.response, Result.failure(error))
-                    }
-                }
+    public static func EVReflectionSerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<T> {
+        return DataResponseSerializer { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
             }
             
-        })
+            guard let _ = data else {
+                let failureReason = "Data could not be serialized. Input data was nil."
+                let error = newError(.noData, failureReason: failureReason)
+                return .failure(error)
+            }
+            
+            let jsonResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = jsonResponseSerializer.serializeResponse(request, response, data, error)
+            
+            let JSONToMap: Any?
+            if let keyPath = keyPath , keyPath.isEmpty == false {
+                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath)
+            } else {
+                JSONToMap = result.value
+            }
+
+            if let object = object {
+                let _ = EVReflection.setPropertiesfromDictionary(JSONToMap as? NSDictionary ?? NSDictionary(), anyObject: object)
+                return .success(object)
+            }
+            
+            let parsedObject = T(dictionary: JSONToMap as? NSDictionary ?? NSDictionary())
+            return .success(parsedObject)
+        }
+    }
+
+    @discardableResult
+    public func responseObject<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+        
+        let serializer = DataRequest.EVReflectionSerializer(keyPath, mapToObject: object)
+        return response(queue: queue, responseSerializer: serializer, completionHandler: completionHandler)
+    }
+    
+    
+    public static func EVReflectionArraySerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<[T]> {
+        return DataResponseSerializer { request, response, data, error in
+            guard error == nil else {
+                return .failure(error!)
+            }
+            
+            guard let _ = data else {
+                let failureReason = "Data could not be serialized. Input data was nil."
+                let error = newError(.noData, failureReason: failureReason)
+                return .failure(error)
+            }
+            
+            let jsonResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
+            let result = jsonResponseSerializer.serializeResponse(request, response, data, error)
+            
+            let JSONToMap: Any?
+            if let keyPath = keyPath, keyPath.isEmpty == false {
+                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath)
+            } else {
+                JSONToMap = result.value
+            }
+            
+            let parsedObject:[T] = ((JSONToMap as? NSArray) ?? NSArray() ).map { T(dictionary: ($0 as? NSDictionary ?? NSDictionary()))} as [T]
+            
+            //T.arrayFromJson(JSONToMap as? String)
+            return .success(parsedObject)
+        }
+    }
+    
+    
+    @discardableResult
+    public func responseArray<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
+        let serializer = DataRequest.EVReflectionArraySerializer(keyPath, mapToObject: object)
+        return response(queue: queue, responseSerializer: serializer, completionHandler: completionHandler)
     }
 }
