@@ -5,10 +5,12 @@
 //  Created by Edwin Vermeer on 6/21/15.
 //  Copyright (c) 2015 evict. All rights reserved.
 //
+// This Alamofire DataRequest extension is based on https://github.com/tristanhimmelman/AlamofireObjectMapper
 
 import Foundation
 import EVReflection
 import Alamofire
+
 
 extension DataRequest {
 
@@ -25,7 +27,7 @@ extension DataRequest {
         return returnError
     }
     
-    public static func EVReflectionSerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<T> {
+    internal static func EVReflectionSerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<T> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
@@ -57,15 +59,25 @@ extension DataRequest {
         }
     }
 
+    /**
+     Adds a handler to be called once the request has finished.
+     
+     - parameter queue: The queue on which the completion handler is dispatched.
+     - parameter keyPath: The key path where EVReflection mapping should be performed
+     - parameter object: An object to perform the mapping on to
+     - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped by EVReflection.
+     
+     - returns: The request.
+     */
     @discardableResult
-    public func responseObject<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
+    open func responseObject<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
         
         let serializer = DataRequest.EVReflectionSerializer(keyPath, mapToObject: object)
         return response(queue: queue, responseSerializer: serializer, completionHandler: completionHandler)
     }
     
     
-    public static func EVReflectionArraySerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<[T]> {
+    internal static func EVReflectionArraySerializer<T: EVObject>(_ keyPath: String?, mapToObject object: T? = nil) -> DataResponseSerializer<[T]> {
         return DataResponseSerializer { request, response, data, error in
             guard error == nil else {
                 return .failure(error!)
@@ -94,9 +106,18 @@ extension DataRequest {
         }
     }
     
-    
+    /**
+     Adds a handler to be called once the request has finished.
+     
+     - parameter queue: The queue on which the completion handler is dispatched.
+     - parameter keyPath: The key path where EVReflection mapping should be performed
+     - parameter object: An object to perform the mapping on to (parameter is not used, only here to make the generics work)
+     - parameter completionHandler: A closure to be executed once the request has finished and the data has been mapped by EVReflection.
+     
+     - returns: The request.
+     */
     @discardableResult
-    public func responseArray<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
+    open func responseArray<T: EVObject>(queue: DispatchQueue? = nil, keyPath: String? = nil, mapToObject object: T? = nil, completionHandler: @escaping (DataResponse<[T]>) -> Void) -> Self {
         let serializer = DataRequest.EVReflectionArraySerializer(keyPath, mapToObject: object)
         return response(queue: queue, responseSerializer: serializer, completionHandler: completionHandler)
     }

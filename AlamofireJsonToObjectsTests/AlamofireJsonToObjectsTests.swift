@@ -178,6 +178,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             XCTAssertNil(error, "\(error)")
         }
     }
+    
 }
 
 
