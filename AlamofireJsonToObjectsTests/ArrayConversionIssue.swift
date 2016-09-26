@@ -115,11 +115,11 @@ class ArrayConversionIssue: XCTestCase {
     }
     
     func testResponseObject() {
-        let URL:URLConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/ArrayConversionIssue_json"
+        let URL:URLConvertible = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/Swift3/AlamofireJsonToObjectsTests/ArrayConversionIssue_json"
         let exp = expectation(description: "\(URL)")
         
         Alamofire.request(URL)
-            .responseArray { (response: DataResponse<[User]>) in
+            .responseObject { (response: DataResponse<ListResponse<ShoppingList>>) in
                 exp.fulfill()
                 
                 if let result = response.result.value {
