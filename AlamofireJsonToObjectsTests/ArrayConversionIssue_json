@@ -1,0 +1,55 @@
+{
+"status": 200,
+"reason": "success",
+"model": [
+{
+"id": 13,
+"name": "Testt",
+"products": [
+{
+"id": 2079,
+"name": "Coca Cola",
+"shortDescription": "250 g (1 kg = 12,99 €)",
+"retailPrice": 1.45,
+"brand": "Ülker",
+"maxOrderAmount": 10,
+"qualityGroup": null,
+"features": [
+"Halal",
+"Laktosefrei"
+],
+"image": "https://files.billa.at/files/artikel/00-74150_01__1200x1200.jpg",
+"sale": null,
+"status": "VISIBLE",
+"amount": 8
+},
+{
+"id": 3278,
+"name": "Nöm Vollmilch 3,5%",
+"shortDescription": "250 g (1 kg = 12,99 €)",
+"retailPrice": 0.79,
+"brand": "Ülker",
+"maxOrderAmount": 10,
+"qualityGroup": null,
+"features": [
+"Halal"
+],
+"image": "http://noem.at/media/products/image/15/NOEM_Vollmilch_ESL_500ml_Tetra-Eifel_V2-img.png",
+"sale": {
+"description": "Falan Filan",
+"salePercent": 25,
+"salePrice": 5.65346400657789,
+"amount": 5,
+"endDate": "30.09.2016 23:00",
+"productIds": [
+3278
+],
+"images": []
+},
+"status": "VISIBLE",
+"amount": 2
+}
+]
+}
+]
+}
