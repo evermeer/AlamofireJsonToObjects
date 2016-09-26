@@ -741,7 +741,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 28587610FBC70EFBD308B524 /* Pods-AlamofireJsonToObjectsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = WTH4QGEA23;
 				INFOPLIST_FILE = "AlamofireJsonToObjectsTests/ios-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -755,7 +754,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F45A0F447339976CDFE4FA7 /* Pods-AlamofireJsonToObjectsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = WTH4QGEA23;
 				INFOPLIST_FILE = "AlamofireJsonToObjectsTests/ios-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -769,7 +767,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 801E44061F0ECE6A4F81EC71 /* Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -787,7 +784,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4BD1DED4AA69FA1528D8DA93 /* Pods-AlamofireJsonToObjectsTestsOSX.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WTH4QGEA23;
