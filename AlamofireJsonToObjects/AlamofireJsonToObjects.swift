@@ -42,20 +42,29 @@ extension DataRequest {
             let jsonResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
             let result = jsonResponseSerializer.serializeResponse(request, response, data, error)
             
-            let JSONToMap: Any?
+            var JSONToMap: NSDictionary?
             if let keyPath = keyPath , keyPath.isEmpty == false {
-                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath)
+                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath) as? NSDictionary
             } else {
-                JSONToMap = result.value
+                JSONToMap = result.value as? NSDictionary
             }
-
-            if let object = object {
-                let _ = EVReflection.setPropertiesfromDictionary(JSONToMap as? NSDictionary ?? NSDictionary(), anyObject: object)
-                return .success(object)
+            if JSONToMap == nil {
+                JSONToMap = NSDictionary()
+            }
+            if response?.statusCode ?? 0 > 200 {
+                let newDict = NSMutableDictionary(dictionary: JSONToMap!)
+                newDict["__response_statusCode"] = response?.statusCode ?? 0
+                JSONToMap = newDict
             }
             
-            let parsedObject = T(dictionary: JSONToMap as? NSDictionary ?? NSDictionary())
-            return .success(parsedObject)
+            if object == nil {
+                let parsedObject: T = T().getSpecificType(JSONToMap!) as? T ?? T(dictionary: JSONToMap!)
+                let _ = EVReflection.setPropertiesfromDictionary(JSONToMap!, anyObject: parsedObject)
+                return .success(parsedObject)
+            } else {
+                let _ = EVReflection.setPropertiesfromDictionary(JSONToMap!, anyObject: object!)
+                return .success(object!)
+            }
         }
     }
 
@@ -92,16 +101,29 @@ extension DataRequest {
             let jsonResponseSerializer = DataRequest.jsonResponseSerializer(options: .allowFragments)
             let result = jsonResponseSerializer.serializeResponse(request, response, data, error)
             
-            let JSONToMap: Any?
+            var JSONToMap: NSArray?
             if let keyPath = keyPath, keyPath.isEmpty == false {
-                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath)
+                JSONToMap = (result.value as AnyObject?)?.value(forKeyPath: keyPath) as? NSArray
             } else {
-                JSONToMap = result.value
+                JSONToMap = result.value as? NSArray
+            }
+            if JSONToMap == nil {
+                JSONToMap = NSArray()
             }
             
-            let parsedObject:[T] = ((JSONToMap as? NSArray) ?? NSArray() ).map { T(dictionary: ($0 as? NSDictionary ?? NSDictionary()))} as [T]
+            if response?.statusCode ?? 0 >= 200 && response?.statusCode ?? 0 < 300 {
+                if JSONToMap?.count ?? 0 > 0 {
+                    let newDict = NSMutableDictionary(dictionary: JSONToMap![0] as? NSDictionary ?? NSDictionary())
+                    newDict["__response_statusCode"] = response?.statusCode ?? 0
+                    let newArray: NSMutableArray = NSMutableArray(array: JSONToMap!)
+                    newArray.replaceObject(at: 0, with: newDict)
+                    JSONToMap = newArray
+                }
+                
+            }
             
-            //T.arrayFromJson(JSONToMap as? String)
+            let parsedObject:[T] = (JSONToMap!).map { T(dictionary: ($0 as? NSDictionary ?? NSDictionary()))} as [T]
+            
             return .success(parsedObject)
         }
     }

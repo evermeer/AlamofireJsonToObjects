@@ -19,6 +19,8 @@ class User: EVObject {
     var phone: String?
     var website: String?
     var company: Company?
+
+
 }
 
 class Address: EVObject {
