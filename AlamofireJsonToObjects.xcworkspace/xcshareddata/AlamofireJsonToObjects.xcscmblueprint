@@ -9,7 +9,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "41F844AD-AE84-4A13-9F0B-546D079DE9F0",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "2610CEC535D215E472B67F0331FC31EA5E7AA5A7" : "AlamofireJsonToObjects",
+    "2610CEC535D215E472B67F0331FC31EA5E7AA5A7" : "AlamofireJsonToObjects\/",
     "C340B50EE85733D3EA247F313D2350126F116920" : "EVReflection\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "AlamofireJsonToObjects",

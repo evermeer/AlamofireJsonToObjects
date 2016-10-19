@@ -19,6 +19,8 @@ class User: EVObject {
     var phone: String?
     var website: String?
     var company: Company?
+
+
 }
 
 class Address: EVObject {
@@ -44,7 +46,7 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        EVReflection.setBundleIdentifier(User)
+        EVReflection.setBundleIdentifier(User.self)
     }
     
     override func tearDown() {
@@ -53,19 +55,20 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
     }
     
     func testResponseObject() {
-        let URL:URLStringConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_users_array_json"
-        let expectation = expectationWithDescription("\(URL)")
+        let URL:URLConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_users_array_json"
+        let exp = expectation(description: "\(URL)")
 
-        Alamofire.request(.GET, URL)
-            .responseArray { (response: Result<[User], NSError>) in
-            expectation.fulfill()
+        Alamofire.request(URL)
+            .responseArray { (response: DataResponse<[User]>) in
+            exp.fulfill()
 
-            if let result = response.value {
+            if let result = response.result.value {
                 print("\(result.description)")
                 
                 XCTAssertTrue(result.count == 10, "We should have 10 users")
                 
-                if let testUser:User = result[2] {
+                if result.count > 2 {
+                    let testUser:User = result[2]
                     XCTAssertTrue(testUser.id == 3, "3rd user id should be 3")
                     XCTAssertTrue(testUser.name == "Clementine Bauch", "3rd user name should be Clementine Bauch")
                     
@@ -80,13 +83,11 @@ class AlamofireJsonToObjectsExternalTests: XCTestCase {
                     } else {
                         XCTFail("No 3rd user address in response")
                     }
-                } else {
-                    XCTFail("No 3rd user in response")
                 }
             }
         }
-        waitForExpectationsWithTimeout(10, handler: { (error: NSError?) -> Void in
+        waitForExpectations(timeout: 10) { error in
             XCTAssertNil(error, "\(error)")
-        })
+        }
     }
 }

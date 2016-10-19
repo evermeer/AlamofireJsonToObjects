@@ -21,7 +21,11 @@
 [![Website](https://img.shields.io/badge/website-evict.nl-blue.svg?style=flat)](http://evict.nl)
 [![eMail](https://img.shields.io/badge/email-edwin@evict.nl-blue.svg?style=flat)](mailto:edwin@evict.nl?SUBJECT=About AlamofireJsonToObjects)
 
+<<<<<<< HEAD
 If you have a question and don't want to create an issue, then we can [![Join the chat at https://gitter.im/evermeer/EVReflection](https://badges.gitter.im/evermeer/EVReflection.svg)](https://gitter.im/evermeer/EVReflection?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) (EVReflection is the core of AlamofireJsonToObjects)
+=======
+If you have a question and don't want to create an issue, then we can [![Join the chat at https://gitter.im/evermeer/EVReflection](https://badges.gitter.im/evermeer/EVReflection.svg)](https://gitter.im/evermeer/EVReflection?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) (EVReflection is the base of AlamofireJsonToObjects)
+>>>>>>> Swift3
 
 With AlamofireJsonToObjects it's extremely easy to fetch a json feed and parse it into objects. No property mapping is required. Reflection is used to put the values in the corresponding properties.
 
@@ -77,8 +81,8 @@ class Forecast: EVObject {
 class AlamofireJsonToObjectsTests: XCTestCase {
     func testResponseObject() {
         let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
-        Alamofire.request(.GET, URL)
-           .responseObject { (response: Result<WeatherResponse, NSError>) in
+        Alamofire.request(URL)
+           .responseObject { (response: Result<WeatherResponse>) in
            if let result = response.value {
             // That was all... You now have a WeatherResponse object with data
            }
