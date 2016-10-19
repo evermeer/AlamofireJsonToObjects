@@ -31,6 +31,7 @@ AlamofireJsonToObjects is based on the folowing libraries:
 
 This library was greatly inspired by [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper)
 
+At this moment the master branch is for Swift3. If you want to continue using EVReflection in Swift 2.2 (or 2.3) then switch to the Swift2.2 branch.
 Run the tests to see AlamofireJsonToObjects in action.
 
 ## Using AlamofireJsonToObjects in your own App 
