@@ -34,6 +34,7 @@
 		7F7009271D98F54000F94936 /* ArrayConversionIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7009221D98F46A00F94936 /* ArrayConversionIssue.swift */; };
 		7FA6A6931D522E8C00DF83E9 /* NestedGenericsIssue25.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6A6921D522E8C00DF83E9 /* NestedGenericsIssue25.swift */; };
 		7FA6A6951D5230CC00DF83E9 /* NestedGenericsIssue25_json in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6A6941D5230CC00DF83E9 /* NestedGenericsIssue25_json */; };
+		7FAF28AD1DB7ACDB008EB612 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = 7FAF28AC1DB7ACDB008EB612 /* .swift-version */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,11 +65,11 @@
 		7F2976601BB963100074C85A /* AlamofireJsonToObjectsTestsOSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlamofireJsonToObjectsTestsOSX.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F2976641BB963100074C85A /* osx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "osx-Info.plist"; path = "AlamofireJsonToObjectsTests/osx-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7F479E161C79000D00F03BEF /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		7F479E171C79000D00F03BEF /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		7F7009221D98F46A00F94936 /* ArrayConversionIssue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayConversionIssue.swift; sourceTree = "<group>"; };
 		7F7009241D98F49600F94936 /* ArrayConversionIssue_json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ArrayConversionIssue_json; sourceTree = "<group>"; };
 		7FA6A6921D522E8C00DF83E9 /* NestedGenericsIssue25.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedGenericsIssue25.swift; sourceTree = "<group>"; };
 		7FA6A6941D5230CC00DF83E9 /* NestedGenericsIssue25_json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NestedGenericsIssue25_json; sourceTree = "<group>"; };
+		7FAF28AC1DB7ACDB008EB612 /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		801E44061F0ECE6A4F81EC71 /* Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTestsOSX/Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig"; sourceTree = "<group>"; };
 		88F1D9E1204293E3BF5BEFD0 /* Pods_AlamofireJsonToObjectsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlamofireJsonToObjectsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F45A0F447339976CDFE4FA7 /* Pods-AlamofireJsonToObjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlamofireJsonToObjectsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlamofireJsonToObjectsTests/Pods-AlamofireJsonToObjectsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,10 +117,10 @@
 		7F193CF61B36E628000C1C34 = {
 			isa = PBXGroup;
 			children = (
+				7FAF28AC1DB7ACDB008EB612 /* .swift-version */,
 				7F159DFC1BA2FA6900247CB1 /* .gitignore */,
 				7F159DFE1BA307F500247CB1 /* .travis.yml */,
 				7F479E161C79000D00F03BEF /* Cartfile */,
-				7F479E171C79000D00F03BEF /* Cartfile.resolved */,
 				7F193D271B371199000C1C34 /* LICENSE */,
 				7F193D281B371199000C1C34 /* Podfile */,
 				7F193D291B371199000C1C34 /* README.md */,
@@ -384,6 +385,7 @@
 				7F0AB8D61B42A597009DBBE1 /* sample_users_array_json in Resources */,
 				7FA6A6951D5230CC00DF83E9 /* NestedGenericsIssue25_json in Resources */,
 				7F29766F1BB964600074C85A /* sample_json in Resources */,
+				7FAF28AD1DB7ACDB008EB612 /* .swift-version in Resources */,
 				7F7009251D98F49600F94936 /* ArrayConversionIssue_json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
