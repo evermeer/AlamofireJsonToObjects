@@ -37,7 +37,6 @@ Run the tests to see AlamofireJsonToObjects in action.
 ## Using AlamofireJsonToObjects in your own App 
 
 'AlamofireJsonToObjects' is available through the dependency manager [CocoaPods](http://cocoapods.org). 
-You do have to use cocoapods version 0.36 or later
 
 You can just add AlamofireJsonToObjects to your workspace by adding the folowing 2 lines to your Podfile:
 
@@ -46,20 +45,11 @@ use_frameworks!
 pod "AlamofireJsonToObjects"
 ```
 
-I have now moved on to Swift 2. If you want to use AlamofireJsonToObjects, then get that version by using the podfile command:
-```
-use_frameworks!
-pod "AlamofireJsonToObjects", '~> 1.0'
-```
-
-Version 0.36 of cocoapods will make a dynamic framework of all the pods that you use. Because of that it's only supported in iOS 8.0 or later. When using a framework, you also have to add an import at the top of your swift file like this:
+you also have to add an import at the top of your swift file like this:
 
 ```
 import AlamofireJsonToObjects
 ```
-
-If you want support for older versions than iOS 8.0, then you can also just copy the AlamofireJsonToObjects.swift  to your app. 
-
 
 ## Sample code
 
