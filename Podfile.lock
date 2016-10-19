@@ -1,29 +1,25 @@
 PODS:
-  - Alamofire (3.4.1)
-  - EVReflection (2.45.0)
+  - Alamofire (3.5.1)
+  - EVReflection (2.39.1)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
-  - EVReflection (from `https://github.com/evermeer/EVReflection.git`)
+  - Alamofire (~> 3.5)
+  - EVReflection (from `https://github.com/evermeer/EVReflection.git`, branch `Swift2.3`)
 
 EXTERNAL SOURCES:
-  Alamofire:
-    :git: https://github.com/Alamofire/Alamofire.git
   EVReflection:
+    :branch: Swift2.3
     :git: https://github.com/evermeer/EVReflection.git
 
 CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 50d57df67276347294d460572d699ecbe9c461be
-    :git: https://github.com/Alamofire/Alamofire.git
   EVReflection:
-    :commit: 6654b988dd70f57d8544dfe61768f89144a70491
+    :commit: 065e545fccea4b88384338097ea05dff27a042e8
     :git: https://github.com/evermeer/EVReflection.git
 
 SPEC CHECKSUMS:
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  EVReflection: aa7065b5757b4efd7265cdb17074aeef57c3f981
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  EVReflection: a3155b949b8468ea064f9c50457ebf2aa454f5db
 
-PODFILE CHECKSUM: 803f87f7b4743d453f22644a171e156918862580
+PODFILE CHECKSUM: 041c37a836ae4d9381ff7fde44f8eb0bbeb26839
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.0.rc.3

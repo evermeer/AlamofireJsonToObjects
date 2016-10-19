@@ -266,12 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F193D211B36E629000C1C34 /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjectsTests" */;
 			buildPhases = (
-				4CB5924DB607F542D1A3E25C /* 📦 Check Pods Manifest.lock */,
+				4CB5924DB607F542D1A3E25C /* [CP] Check Pods Manifest.lock */,
 				7F193D101B36E629000C1C34 /* Sources */,
 				7F193D111B36E629000C1C34 /* Frameworks */,
 				7F193D121B36E629000C1C34 /* Resources */,
-				87F2C6AFDB632A093911AE5D /* 📦 Embed Pods Frameworks */,
-				C4194050139D9FC2E4600FA2 /* 📦 Copy Pods Resources */,
+				87F2C6AFDB632A093911AE5D /* [CP] Embed Pods Frameworks */,
+				C4194050139D9FC2E4600FA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -286,12 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F2976671BB963100074C85A /* Build configuration list for PBXNativeTarget "AlamofireJsonToObjectsTestsOSX" */;
 			buildPhases = (
-				92A9DFB34E6E493636050707 /* 📦 Check Pods Manifest.lock */,
+				92A9DFB34E6E493636050707 /* [CP] Check Pods Manifest.lock */,
 				7F29765C1BB963100074C85A /* Sources */,
 				7F29765D1BB963100074C85A /* Frameworks */,
 				7F29765E1BB963100074C85A /* Resources */,
-				10924885B6C6C991D949F059 /* 📦 Embed Pods Frameworks */,
-				2C05F8552ADB40AA73C86FBA /* 📦 Copy Pods Resources */,
+				10924885B6C6C991D949F059 /* [CP] Embed Pods Frameworks */,
+				2C05F8552ADB40AA73C86FBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,6 +320,7 @@
 					};
 					7F193D131B36E629000C1C34 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0800;
 					};
 					7F29765F1BB963100074C85A = {
 						CreatedOnToolsVersion = 7.0;
@@ -386,14 +387,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10924885B6C6C991D949F059 /* 📦 Embed Pods Frameworks */ = {
+		10924885B6C6C991D949F059 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,14 +402,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireJsonToObjectsTestsOSX/Pods-AlamofireJsonToObjectsTestsOSX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2C05F8552ADB40AA73C86FBA /* 📦 Copy Pods Resources */ = {
+		2C05F8552ADB40AA73C86FBA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,29 +417,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireJsonToObjectsTestsOSX/Pods-AlamofireJsonToObjectsTestsOSX-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4CB5924DB607F542D1A3E25C /* 📦 Check Pods Manifest.lock */ = {
+		4CB5924DB607F542D1A3E25C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		87F2C6AFDB632A093911AE5D /* 📦 Embed Pods Frameworks */ = {
+		87F2C6AFDB632A093911AE5D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,29 +447,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlamofireJsonToObjectsTests/Pods-AlamofireJsonToObjectsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92A9DFB34E6E493636050707 /* 📦 Check Pods Manifest.lock */ = {
+		92A9DFB34E6E493636050707 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C4194050139D9FC2E4600FA2 /* 📦 Copy Pods Resources */ = {
+		C4194050139D9FC2E4600FA2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -717,6 +718,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AlamofireJsonToObjectsTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -728,6 +730,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.evict.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AlamofireJsonToObjectsTests;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
