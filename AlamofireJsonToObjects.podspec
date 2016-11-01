@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "AlamofireJsonToObjects"
-s.version      = "2.2.0"
+s.version      = "2.3.0"
 s.summary      = "An Alamofire extension which converts JSON response data into swift objects using EVReflection"
 s.description  = "An Alamofire extension which converts JSON response data into swift objects using EVReflection. "
 s.homepage     = "https://github.com/evermeer/AlamofireJsonToObjects"
@@ -35,6 +35,7 @@ s.license      = { :type => "MIT", :file => "LICENSE" }
 #
 
 s.author    = "evermeer"
+s.authors   = { 'Edwin Vermeer' => 'edwin@evict.nl' }
 s.social_media_url   = "https://twitter.com/evermeer"
 
 # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

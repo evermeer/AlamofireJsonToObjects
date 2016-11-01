@@ -58,7 +58,8 @@ extension DataRequest {
             }
             
             if object == nil {
-                let parsedObject: T = T().getSpecificType(JSONToMap!) as? T ?? T(dictionary: JSONToMap!)
+                let instance: T = T()
+                let parsedObject: T = ((instance.getSpecificType(JSONToMap!) as? T) ?? instance)
                 let _ = EVReflection.setPropertiesfromDictionary(JSONToMap!, anyObject: parsedObject)
                 return .success(parsedObject)
             } else {
@@ -122,7 +123,11 @@ extension DataRequest {
                 
             }
             
-            let parsedObject:[T] = (JSONToMap!).map { T(dictionary: ($0 as? NSDictionary ?? NSDictionary()))} as [T]
+            let parsedObject:[T] = (JSONToMap!).map {
+                let instance: T = T()
+                let _ = EVReflection.setPropertiesfromDictionary($0 as? NSDictionary ?? NSDictionary(), anyObject: instance)
+                return instance
+            } as [T]
             
             return .success(parsedObject)
         }
