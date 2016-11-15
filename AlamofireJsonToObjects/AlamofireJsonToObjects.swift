@@ -51,7 +51,7 @@ extension DataRequest {
             if JSONToMap == nil {
                 JSONToMap = NSDictionary()
             }
-            if response?.statusCode ?? 0 > 200 {
+            if response?.statusCode ?? 0 >= 200 {
                 let newDict = NSMutableDictionary(dictionary: JSONToMap!)
                 newDict["__response_statusCode"] = response?.statusCode ?? 0
                 JSONToMap = newDict
@@ -112,15 +112,14 @@ extension DataRequest {
                 JSONToMap = NSArray()
             }
             
-            if response?.statusCode ?? 0 >= 200 && response?.statusCode ?? 0 < 300 {
+            if response?.statusCode ?? 0 >= 200  {
                 if JSONToMap?.count ?? 0 > 0 {
                     let newDict = NSMutableDictionary(dictionary: JSONToMap![0] as? NSDictionary ?? NSDictionary())
                     newDict["__response_statusCode"] = response?.statusCode ?? 0
                     let newArray: NSMutableArray = NSMutableArray(array: JSONToMap!)
                     newArray.replaceObject(at: 0, with: newDict)
                     JSONToMap = newArray
-                }
-                
+                }                
             }
             
             let parsedObject:[T] = (JSONToMap!).map {
