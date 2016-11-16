@@ -87,7 +87,7 @@ protocol ResponseListener: class {
 }
 
 class BaseWebServices<T: BaseModel> : NSObject {
-    let BASE_URL: String! = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/"
+    let BASE_URL: String = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/"
     var listener: ResponseListener?
 
     func executeService(serviceUrl: String, parameters: [String: Any]) {
