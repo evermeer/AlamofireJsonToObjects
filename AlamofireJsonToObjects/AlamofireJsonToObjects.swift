@@ -12,6 +12,19 @@ import EVReflection
 import Alamofire
 
 
+open class EVNetworkingObject: EVObject {
+    override open func initValidation(_ dict: NSDictionary) {
+        if dict["__response_statusCode"] != nil {
+            self.addStatusMessage(DeserializationStatus.Custom, message: "HTTP Status = \(dict["__response_statusCode"]!)")
+        }
+    }
+    
+    override open func propertyMapping() -> [(String?, String?)] {
+        return [("__response_statusCode", nil)]
+    }
+}
+
+
 extension DataRequest {
 
     enum ErrorCode: Int {

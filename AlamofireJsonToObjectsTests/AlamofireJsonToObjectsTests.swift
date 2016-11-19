@@ -10,12 +10,12 @@ import XCTest
 import Alamofire
 import EVReflection
 
-class WeatherResponse: EVObject {
+class WeatherResponse: EVNetworkingObject {
     var location: String?
     var three_day_forecast: [Forecast] = [Forecast]()
 }
 
-class Forecast: EVObject {
+class Forecast: EVNetworkingObject {
     var day: String?
     var temperature: NSNumber?
     var conditions: String?
@@ -44,7 +44,6 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         Alamofire.request(URL)
             .responseObject { (response: DataResponse<WeatherResponse>) in
             
-            exp.fulfill()
             if let result = response.result.value {
                 print("\(result.description)")
                 XCTAssertNotNil(result.location, "Location should not be nil")
@@ -59,8 +58,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             } else {
                 XCTAssert(true, "no result from service")
             }
-            
-                
+            exp.fulfill()
         }
 
         waitForExpectations(timeout: 10) { error in
@@ -68,6 +66,30 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         }
     }
 
+    
+    func testErrorResponse() {
+        let URL: URLConvertible = "http://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/non_existing_file"
+        let exp = expectation(description: "\(URL)")
+        
+        Alamofire.request(URL)
+            .responseObject { (response: DataResponse<WeatherResponse>) in
+                
+            if let result = response.result.value {
+                print("\(result.description)")
+                print("\(result.evReflectionStatuses)")
+                XCTAssertNotNil(result.evReflectionStatuses.first?.0 == DeserializationStatus.Custom, "A custom validation error should have been added")
+                XCTAssertNotNil(result.evReflectionStatuses.first?.1 == "HTTP Status = 404", "The custom validation error should be for a 404 HTTP status error")
+            } else {
+                XCTAssert(true, "no result from service")
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { error in
+            XCTAssertNil(error, "\(error)")
+        }
+    }
+    
 
     func testResponseObject2() {
         // This is an example of a functional test case.
@@ -77,19 +99,19 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         Alamofire.request(Router.list1())
             .responseObject { (response: DataResponse<WeatherResponse>) in
                 
-            exp.fulfill()
-                if let result = response.result.value {
-                    XCTAssertNotNil(result.location, "Location should not be nil")
-                    XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
-                    XCTAssertEqual(result.three_day_forecast.count, 3, "ThreeDayForcast should have 2 items.")
-                    for forecast in result.three_day_forecast {
-                        XCTAssertNotNil(forecast.day, "day should not be nil")
-                        XCTAssertNotNil(forecast.conditions, "conditions should not be nil")
-                        XCTAssertNotNil(forecast.temperature, "temperature should not be nil")
-                    }
-                } else {
-                    XCTAssert(true, "Could not get result from service")
+            if let result = response.result.value {
+                XCTAssertNotNil(result.location, "Location should not be nil")
+                XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
+                XCTAssertEqual(result.three_day_forecast.count, 3, "ThreeDayForcast should have 2 items.")
+                for forecast in result.three_day_forecast {
+                    XCTAssertNotNil(forecast.day, "day should not be nil")
+                    XCTAssertNotNil(forecast.conditions, "conditions should not be nil")
+                    XCTAssertNotNil(forecast.temperature, "temperature should not be nil")
                 }
+            } else {
+                XCTAssert(true, "Could not get result from service")
+            }
+            exp.fulfill()
         }
         
         waitForExpectations(timeout: 10) { error in
@@ -106,7 +128,6 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         Alamofire.request(URL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil)
             .responseObject { (response: DataResponse<WeatherResponse>) in
                 
-                exp.fulfill()
                 if let result = response.result.value {
                     XCTAssertNotNil(result.location, "Location should not be nil")
                     XCTAssertNotNil(result.three_day_forecast, "ThreeDayForcast should not be nil")
@@ -119,6 +140,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
                 } else {
                     XCTAssert(true, "Could not get result from service")
                 }
+                exp.fulfill()
         }
         
         waitForExpectations(timeout: 10) { error in
@@ -133,7 +155,6 @@ class AlamofireJsonToObjectsTests: XCTestCase {
         
         Alamofire.request(URL)
         .responseArray { (response: DataResponse<[Forecast]>) in
-            exp.fulfill()
 
             if let result = response.result.value {
                 for forecast in result {
@@ -144,7 +165,7 @@ class AlamofireJsonToObjectsTests: XCTestCase {
             } else {
                 XCTAssert(true, "Service did not return a result")
             }
-            
+            exp.fulfill()
         }
         
         waitForExpectations(timeout: 10) { error in

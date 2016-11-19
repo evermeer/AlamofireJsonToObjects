@@ -54,12 +54,12 @@ import AlamofireJsonToObjects
 ## Sample code
 
 ```
-class WeatherResponse: EVObject {
+class WeatherResponse: EVNetworkingObject {
     var location: String?
     var three_day_forecast: [Forecast] = [Forecast]()
 }
 
-class Forecast: EVObject {
+class Forecast: EVNetworkingObject {
     var day: String?
     var temperature: NSNumber?
     var conditions: String?
@@ -104,6 +104,10 @@ The code above will pass the folowing json to the objects:
 
 ## Advanced object mapping
 AlamofireJsonToObjects is based on [EVReflection](https://github.com/evermeer/EVReflection) and you can use all [EVReflection](https://github.com/evermeer/EVReflection) features like property mapping, converters, validators and key kleanup. See [EVReflection](https://github.com/evermeer/EVReflection) for more information.
+
+## Handling HTTP status >= 300
+When a network call returns a [HTTP error status](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) (300 or highter) then this will be added to the evReflectionStatuses as a custom error. see the unit test testErrorResponse as a sample. In order to make this work, you do have to set EVNetworkingObject as your bass class and not EVObject. You then also have to be aware that if you override the initValidation or the propertyMapping function, that you also have to call the super for that function.
+
 
 ## License
 
