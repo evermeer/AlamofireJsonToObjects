@@ -69,9 +69,9 @@ class AlamofireJsonToObjectsTests: XCTestCase {
     func testResponseObject() {
         let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
         Alamofire.request(URL)
-           .responseObject { (response: Result<WeatherResponse>) in
-           if let result = response.value {
-            // That was all... You now have a WeatherResponse object with data
+            .responseObject { (response: DataResponse<WeatherResponse>) in
+            if let result = response.result.value {
+                // That was all... You now have a WeatherResponse object with data
            }
         }
         waitForExpectationsWithTimeout(10, handler: { (error: NSError!) -> Void in
