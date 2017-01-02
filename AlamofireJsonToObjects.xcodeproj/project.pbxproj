@@ -317,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = evict;
 				TargetAttributes = {
 					4A828B781C7801F50045D2D6 = {
@@ -332,7 +332,7 @@
 					7F193D131B36E629000C1C34 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = WTH4QGEA23;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					7F29765F1BB963100074C85A = {
 						CreatedOnToolsVersion = 7.0;
@@ -769,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 801E44061F0ECE6A4F81EC71 /* Pods-AlamofireJsonToObjectsTestsOSX.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -786,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4BD1DED4AA69FA1528D8DA93 /* Pods-AlamofireJsonToObjectsTestsOSX.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = WTH4QGEA23;

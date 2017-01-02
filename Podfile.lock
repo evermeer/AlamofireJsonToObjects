@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
-  - EVReflection (3.4.1)
+  - EVReflection (3.6.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
@@ -14,15 +14,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: 7a17b1d4b558a172d571a9d2b1cd81e190586027
+    :commit: 779930c399307caa3d1afb01fd628754e323ea34
     :git: https://github.com/Alamofire/Alamofire.git
   EVReflection:
-    :commit: 54c1e80bef9f5f18a820efd18eb526f27c994a05
+    :commit: 1f060480b76683d63e5df9191bfebc4eeea2cc7e
     :git: https://github.com/evermeer/EVReflection.git
 
 SPEC CHECKSUMS:
   Alamofire: 26d8877ec03b4e6e6cbfbf7c03924b4844a2d453
-  EVReflection: 8042866f00c6d09fba47a68c55bf8dd0a9bd6d6f
+  EVReflection: 5593987d8d981fefc018617482dcba16df978bd6
 
 PODFILE CHECKSUM: b23d0f295b1db58b718a1a6c6d39516f37f4e932
 

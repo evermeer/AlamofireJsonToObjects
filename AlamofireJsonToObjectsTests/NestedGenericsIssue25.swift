@@ -31,7 +31,7 @@ class ResponseModel<T: BaseModel>: EVObject, EVGenericsKVC {
     }
 
     internal func getGenericType() -> NSObject {
-        return T()
+        return T() as NSObject
     }
 }
 
@@ -58,7 +58,7 @@ class PagerModel<T: BaseModel>: BaseModel, EVGenericsKVC {
     }
 
     internal func getGenericType() -> NSObject {
-        return T()
+        return T() as NSObject
     }
 }
 
