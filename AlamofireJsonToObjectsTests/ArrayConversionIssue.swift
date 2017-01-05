@@ -39,8 +39,8 @@ class ListResponse<T: NSObject>: EVObject, EVGenericsKVC {
 
 
 class ShoppingList: EVObject {
-    var id   : Int64                    = 0
-    var name : String                   = ""
+    var id: Int64                    = 0
+    var name: String                   = ""
     var products: [ShoppingListProduct] = []
 }
 
@@ -55,16 +55,26 @@ enum ProductStatus {
 }
 
 class BaseProduct: EVObject {
-    var id              : Int64         = 0
-    var name            : String        = ""
-    var retailPrice     : Double        = 0.0
-    var maxOrderAmount  : Int           = 0
-    var image           : String        = ""
-    var sale            : Sale          = Sale()
-    var features        : Array<String> = Array()
-    var status          : ProductStatus = .None
+    var id: Int64         = 0
+    var name: String        = ""
+    var retailPrice: Double        = 0.0
+    var maxOrderAmount: Int           = 0
+    var image: String        = ""
+    var sale: Sale          = Sale()
+    var features: Array<String> = Array()
+    var status: ProductStatus = .None
+    var shortDescription: String = ""
+    var brand: String = ""
     
     override func setValue(_ value: Any!, forUndefinedKey key: String) {
+        if key == "status" {
+            if (value as? String ?? "") == "Visible" {
+                status = .Visible
+            } else {
+                status = .None
+            }
+            return
+        }
         print("Key <\(key)> is not defined for sale!")
     }
 }
@@ -72,13 +82,14 @@ class BaseProduct: EVObject {
 
 
 class Sale: EVObject, EVArrayConvertable {
-    var desc        : String        = ""
-    var salePercent : String        = ""
-    var salePrice   : Double        = 0
-    var amount      : Int           = 0
-    var endDate     : String        = ""
-    var productIds  : [Int]         = []
-    var images      : Array<String> = Array()
+    var desc: String        = ""
+    var salePercent: String        = ""
+    var salePrice: Double        = 0
+    var amount: Int           = 0
+    var endDate: String        = ""
+    var productIds: [Int]         = []
+    var images: Array<String> = Array()
+    
     
     override func setValue(_ value: Any!, forUndefinedKey key: String) {
         switch key {

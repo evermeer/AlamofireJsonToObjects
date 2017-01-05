@@ -110,6 +110,7 @@ class BaseWebServices<T: BaseModel> : NSObject {
 }
 
 
+
 class NewsHeaderService: BaseWebServices<PagerModel<NewsHeader>>, ResponseListener {
     override  init() {
         super.init()

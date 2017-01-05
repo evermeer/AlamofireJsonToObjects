@@ -65,7 +65,7 @@ class Forecast: EVNetworkingObject {
     var conditions: String?
 }
 
-class AlamofireJsonToObjectsTests: XCTestCase {
+class AlamofireJsonToObjectsTests: XCTestCase { 
     func testResponseObject() {
         let URL = "https://raw.githubusercontent.com/evermeer/AlamofireJsonToObjects/master/AlamofireJsonToObjectsTests/sample_json"
         Alamofire.request(URL)
