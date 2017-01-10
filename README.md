@@ -1,7 +1,6 @@
 # AlamofireJsonToObjects
 
-
-🚨  This is now a subspec of **[EVReflection](https://github.com/evermeer/EVReflection)** and the code is maintained there. 🚨
+🚨  This is now a subspec of **[EVReflection](https://github.com/evermeer/EVReflection/tree/master/Source/Alamofire)** and the code is maintained there. 🚨
 
 You can install it as a subspec like this:
 
@@ -15,8 +14,8 @@ Besideds this subspec there are also subspecs for: XML, AlamofireXML, Moya, Moya
 
 <!---
  [![Circle CI](https://img.shields.io/circleci/project/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://circleci.com/gh/evermeer/AlamofireJsonToObjects)
- -->
 [![Build Status](https://travis-ci.org/evermeer/AlamofireJsonToObjects.svg?branch=master)](https://travis-ci.org/evermeer/AlamofireJsonToObjects)
+-->
 [![Issues](https://img.shields.io/github/issues-raw/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/issues)
 [![Documentation](https://img.shields.io/badge/documented-100%-brightgreen.svg?style=flat)](http://cocoadocs.org/docsets/AlamofireJsonToObjects)
 [![Stars](https://img.shields.io/github/stars/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://github.com/evermeer/AlamofireJsonToObjects/stargazers)
