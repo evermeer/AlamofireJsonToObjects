@@ -1,5 +1,18 @@
 # AlamofireJsonToObjects
 
+
+🚨  This is now a subspec of **[EVReflection](https://github.com/evermeer/EVReflection)** and the code is maintained there. 🚨
+
+You can install it as a subspec like this:
+
+```
+use_frameworks!
+pod "EVReflection/Alamofire"
+```
+
+Besideds this subspec there are also subspecs for: XML, AlamofireXML, Moya, MoyaRxSwift and MoyaReflectiveSwift
+
+
 <!---
  [![Circle CI](https://img.shields.io/circleci/project/evermeer/AlamofireJsonToObjects.svg?style=flat)](https://circleci.com/gh/evermeer/AlamofireJsonToObjects)
  -->
