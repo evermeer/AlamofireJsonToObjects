@@ -31,13 +31,13 @@ class ResponseModel<T: BaseModel>: EVObject, EVGenericsKVC {
     }
 
     internal func getGenericType() -> NSObject {
-        return T() as NSObject
+        return T() as! NSObject
     }
 }
 
 
 class PagerModel<T: BaseModel>: BaseModel, EVGenericsKVC {
-    required init() {
+    required override init() {
         super.init()
     }
 
@@ -58,7 +58,7 @@ class PagerModel<T: BaseModel>: BaseModel, EVGenericsKVC {
     }
 
     internal func getGenericType() -> NSObject {
-        return T() as NSObject
+        return T() as! NSObject
     }
 }
 
