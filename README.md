@@ -2,6 +2,15 @@
 
 🚨  This is now a subspec of **[EVReflection](https://github.com/evermeer/EVReflection/tree/master/Source/Alamofire)** and the code is maintained there. 🚨
 
+
+
+
+AlamofireJsonToObjects is an old library. All functionality is now part of EVReflection. You should use EVRevlection instead of AlamofireJsonToObjects .
+
+
+
+
+
 You can install it as a subspec like this:
 
 ```
